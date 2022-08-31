@@ -1,7 +1,4 @@
-import { Skeleton, Typography } from "@mui/material";
 import { CharacterData } from "pipeline";
-import ColorText from "../../../Components/ColoredText";
-import SqBadge from "../../../Components/SqBadge";
 import { input } from "../../../Formula";
 import {
   constant,
@@ -12,12 +9,10 @@ import {
   percent,
   prod,
   subscript,
-  sum,
-  unequal,
 } from "../../../Formula/utils";
 import { CharacterKey } from "../../../Types/consts";
-import { objectKeyMap } from "../../../Util/Util";
-import { cond, st, trans } from "../../SheetUtil";
+import { range } from "../../../Util/Util";
+import { cond, trans } from "../../SheetUtil";
 import CharacterSheet, {
   charTemplates,
   ICharacterSheet,
@@ -103,33 +98,34 @@ const datamine = {
   },
   burst: {
     hit1: [
-      0.730269, 0.78971, 0.84915, 0.934065, 0.993506, 1.061438, 1.154844,
-      1.248251, 1.341657, 1.443555, 1.545453, 1.647351, 1.749249, 1.851147,
-      1.953045,
+      0.782832, 0.846551, 0.91027, 1.001297, 1.065016, 1.137838, 1.237967,
+      1.338097, 1.438227, 1.547459, 1.656691, 1.765924, 1.875156, 1.984389,
+      2.093621,
     ],
     hit2: [
-      0.769408, 0.832034, 0.89466, 0.984126, 1.046752, 1.118325, 1.216738,
-      1.31515, 1.413563, 1.520922, 1.628281, 1.73564, 1.843, 1.950359, 2.057718,
+      0.824688, 0.891814, 0.95894, 1.054834, 1.12196, 1.198675, 1.304158,
+      1.409642, 1.515125, 1.630198, 1.745271, 1.860344, 1.975416, 2.090489,
+      2.205562,
     ],
     hit3: [
-      0.976556, 1.056043, 1.13553, 1.249083, 1.32857, 1.419412, 1.544321,
-      1.669229, 1.794137, 1.930401, 2.066665, 2.202928, 2.339192, 2.475455,
-      2.611719,
+      1.046336, 1.131503, 1.21667, 1.338337, 1.423504, 1.520837, 1.654671,
+      1.788505, 1.922339, 2.068339, 2.214339, 2.36034, 2.50634, 2.652341,
+      2.798341,
     ],
     hit41: [
-      0.483028, 0.522344, 0.56166, 0.617826, 0.657142, 0.702075, 0.763858,
-      0.82564, 0.887423, 0.954822, 1.022221, 1.08962, 1.15702, 1.224419,
-      1.291818,
+      0.516942, 0.559018, 0.601095, 0.661205, 0.703281, 0.751369, 0.817489,
+      0.88361, 0.94973, 1.021861, 1.093993, 1.166124, 1.238256, 1.310387,
+      1.382518,
     ],
     hit42: [
-      0.483028, 0.522344, 0.56166, 0.617826, 0.657142, 0.702075, 0.763858,
-      0.82564, 0.887423, 0.954822, 1.022221, 1.08962, 1.15702, 1.224419,
-      1.291818,
+      0.516942, 0.559018, 0.601095, 0.661205, 0.703281, 0.751369, 0.817489,
+      0.88361, 0.94973, 1.021861, 1.093993, 1.166124, 1.238256, 1.310387,
+      1.382518,
     ],
     hit5: [
-      1.220933, 1.320312, 1.41969, 1.561659, 1.661037, 1.774613, 1.930778,
-      2.086944, 2.24311, 2.413473, 2.583836, 2.754199, 2.924561, 3.094924,
-      3.265287,
+      1.308447, 1.414948, 1.52145, 1.673595, 1.780096, 1.901812, 2.069172,
+      2.236531, 2.403891, 2.586465, 2.769039, 2.951613, 3.134187, 3.316761,
+      3.499335,
     ],
     charged: [
       1.0105, 1.09275, 1.175, 1.2925, 1.37475, 1.46875, 1.598, 1.72725, 1.8565,
@@ -163,9 +159,13 @@ const datamine = {
     skillBonus: 0.35,
   },
   passive2: {
-    naMul: 1,
+    naMul: 1.25,
     boltMult: 2.5,
   },
+  constellation2: {
+    maxStacks: 5,
+    dmgBonus: 0.1,
+  }
 };
 
 const [condJudicationPath, condJudication] = cond(key, "judication");
@@ -219,31 +219,19 @@ function duststalkerBolt() {
   );
 }
 
-const c2Stacks = [1, 2, 3, 4, 5];
-const crIncreaseArr = {
-  1: constant(0.03),
-  2: constant(0.06),
-  3: constant(0.09),
-  4: constant(0.12),
-  5: constant(0.15),
-};
-const cdIncreaseArr = {
-  1: constant(0.06),
-  2: constant(0.12),
-  3: constant(0.18),
-  4: constant(0.24),
-  5: constant(0.3),
-};
+const c2Stacks = range(1, datamine.constellation2.maxStacks);
 const [c2Path, c2] = cond(key, "c2");
-const crIncrease = greaterEq(
+const c2ElDmgBonus = greaterEq(
   input.constellation,
   2,
-  lookup(c2, crIncreaseArr, constant(0))
-);
-const cdIncrease = greaterEq(
-  input.constellation,
-  2,
-  lookup(c2, cdIncreaseArr, constant(0))
+  prod(
+    lookup(
+      c2,
+      Object.fromEntries(c2Stacks.map((i) => [i, constant(i)])),
+      constant(0)
+    ),
+    datamine.constellation2.dmgBonus,
+  )
 );
 
 const dmgFormulas = {
@@ -297,14 +285,13 @@ export const data = dataObjForCharacterSheet(
     premod: {
       skill_dmg_: chasmicSaulfarerBonus,
       eleMas: elementalMasteryBonus,
-      critRate_: crIncrease,
-      critDMG_: cdIncrease,
+      electro_dmg_: c2ElDmgBonus,
     },
   }
 );
 
 const sheet: ICharacterSheet = {
-  name: "Cyno",
+  name: tr("name"),
   cardImg: card,
   thumbImg: thumb,
   thumbImgSide: thumbSide,
@@ -313,559 +300,197 @@ const sheet: ICharacterSheet = {
   elementKey: "electro",
   weaponTypeKey: data_gen.weaponTypeKey,
   gender: "M",
-  constellationName: <Typography></Typography>,
-  title: <Typography>Cyno</Typography>,
+  constellationName: tr("constellationName"),
+  title: tr("title"),
   talent: {
     sheets: {
-      auto: {
-        name: <text>Invoker's Spear</text>,
-        img: talentAssets.auto!,
-        sections: [
-          {
-            text: (
-              <Typography>
-                <strong>Normal Attack</strong>
-              </Typography>
-            ),
-          },
-          {
-            text: (
-              <Typography>
-                <text>Performs up to four consecutive spear strikes.</text>
-              </Typography>
-            ),
-          },
-          {
-            fields: datamine.normal.hitArr.map((_, i) => ({
-              node: infoMut(dmgFormulas.normal[i], {
-                key: `${1 + i + (i < 3 ? 0 : -1)}-Hit DMG `,
+      auto: ct.talentTemplate("auto", [
+        {
+          text: tr("auto.fields.normal"),
+        },
+        {
+          fields: datamine.normal.hitArr.map((_, i) => ({
+            node: infoMut(dmgFormulas.normal[i], {
+              key: `${1 + i + (i < 3 ? 0 : -1)}-Hit DMG `,
+            }),
+            textSuffix: i === 2 ? "(1)" : i === 3 ? "(2)" : "",
+          })),
+        },
+        {
+          text: tr("auto.fields.charged"),
+        },
+        {
+          fields: [
+            {
+              node: infoMut(dmgFormulas.charged.dmg, {
+                key: `char_${key}_gen:auto.skillParams.5`,
               }),
-              textSuffix: i === 2 ? "(1)" : i === 3 ? "(2)" : "",
+            },
+            {
+              text: tr("auto.skillParams.6"),
+              value: datamine.charged.stamina[0],
+            },
+          ],
+        },
+        { text: tr("auto.fields.plunging") },
+        {
+          fields: [
+            {
+              node: infoMut(dmgFormulas.plunging.dmg, {
+                key: "sheet_gen:plunging.dmg",
+              }),
+            },
+            {
+              node: infoMut(dmgFormulas.plunging.low, {
+                key: "sheet_gen:plunging.low",
+              }),
+            },
+            {
+              node: infoMut(dmgFormulas.plunging.high, {
+                key: "sheet_gen:plunging.high",
+              }),
+            },
+          ],
+        },
+      ]),
+      skill: ct.talentTemplate("skill", [
+        {
+          fields: [
+            {
+              node: infoMut(dmgFormulas.skill.dmg, {
+                key: `char_${key}_gen:skill.skillParams.0`,
+              }),
+            },
+            {
+              node: infoMut(dmgFormulas.skill.mortuaryRiteDmg, {
+                key: `char_${key}_gen:skill.skillParams.1`,
+              }),
+            },
+            {
+              text: tr("skill.skillParams.2"),
+              value: `${datamine.skill.pathclearerDurationBonus[0]}s`,
+            },
+            {
+              text: tr("skill.skillParams.3"),
+              value: `${datamine.skill.cd[0]}s`,
+            },
+            {
+              text: tr("skill.skillParams.4"),
+              value: `${datamine.skill.mortuaryRiteCd[0]}s`,
+            },
+          ],
+        },
+      ]),
+      burst: ct.talentTemplate("burst", [
+        {
+          fields: [
+            ...Object.keys(dmgFormulas.burst).map((_, i) => ({
+              node: infoMut(dmgFormulas.burst[_], {
+                key: `char_${key}_gen:burst.skillParams.${i}`,
+              }),
             })),
-          },
-          {
-            text: (
-              <Typography>
-                <strong>Charged Attack</strong>
-              </Typography>
-            ),
-          },
-          {
-            text: (
-              <Typography>
-                Consumes a certain amount of Stamina to lunge forward, dealing
-                damage to opponents along the way.
-              </Typography>
-            ),
-          },
-          {
-            fields: [
-              {
-                node: infoMut(dmgFormulas.charged.dmg, {
-                  key: `Charged Attack DMG`,
-                }),
-              },
-              {
-                text: <Typography>Charged Attack Stamina Cost</Typography>,
-                value: datamine.charged.stamina[0],
-              },
-            ],
-          },
-          {
-            text: (
-              <Typography>
-                <strong>Plunging Attack</strong>
-              </Typography>
-            ),
-          },
-          {
-            text: (
-              <Typography>
-                Plunges from mid-air to strike the ground below, damaging
-                opponents along the path and dealing AoE DMG upon impact.
-              </Typography>
-            ),
-          },
-          {
-            fields: [
-              {
-                node: infoMut(dmgFormulas.plunging.dmg, {
-                  key: "sheet_gen:plunging.dmg",
-                }),
-              },
-              {
-                node: infoMut(dmgFormulas.plunging.low, {
-                  key: "sheet_gen:plunging.low",
-                }),
-              },
-              {
-                node: infoMut(dmgFormulas.plunging.high, {
-                  key: "sheet_gen:plunging.high",
-                }),
-              },
-            ],
-          },
-        ],
-      },
-      skill: {
-        name: <text>Secret Rite: Chasmic Soulfarer</text>,
-        img: talentAssets.skill!,
-        sections: [
-          {
-            text: (
-              <Typography>
-                Performs a swift thrust, dealing{" "}
-                <ColorText color="electro">Electro DMG</ColorText> to opponents
-                along the path.
-              </Typography>
-            ),
-          },
-          {
-            text: (
-              <Typography>
-                When Cyno is under the Pactsworn Pathclearer state triggered by
-                Sacred Rite: Wolf's Swiftness, he will instead unleash a
-                <strong> Mortuary Rite</strong> that deals thunderous{" "}
-                <ColorText color="electro">AoE Electro DMG</ColorText> and
-                extends the duration of Pactsworn Pathclearer.
-              </Typography>
-            ),
-          },
-          {
-            fields: [
-              {
-                node: infoMut(dmgFormulas.skill.dmg, {
-                  key: `Skill DMG`,
-                }),
-              },
-              {
-                node: infoMut(dmgFormulas.skill.mortuaryRiteDmg, {
-                  key: `Mortuary Rite DMG`,
-                }),
-              },
-              {
-                text: (
-                  <Typography>Pactsworn Pathclearer Duration Bonus</Typography>
-                ),
-                value: `${datamine.skill.pathclearerDurationBonus[0]}s`,
-              },
-              {
-                text: <Typography>CD</Typography>,
-                value: `${datamine.skill.cd[0]}s`,
-              },
-              {
-                text: <Typography>Mortuary Rite CD</Typography>,
-                value: `${datamine.skill.mortuaryRiteCd[0]}s`,
-              },
-            ],
-          },
-        ],
-      },
-
-      burst: {
-        name: <text>Sacred Rite: Wolf's Swiftness</text>,
-        img: talentAssets.burst!,
-        sections: [
-          {
-            text: (
-              <Typography>
-                Calls upon a divine spirit to possess him, morphing into the
-                Pactsworn Pathclearer.
-              </Typography>
-            ),
-          },
-          {
-            text: (
-              <Typography>
-                <strong>Pactsworn Pathclearer</strong>
-              </Typography>
-            ),
-          },
-          {
-            text: (
-              <Typography>
-                Cyno's Normal, Charged, and Plunging Attacks will be converted
-                to <ColorText color="electro">Electro DMG</ColorText> that
-                cannot be overriden.
-                <ul>
-                  <li>
-                    Cyno's Elemental Mastery and resistance to interruption will
-                    increase, and he gains immunity to Electro-Charged DMG.
-                  </li>
-                </ul>
-              </Typography>
-            ),
-          },
-          {
-            text: (
-              <Typography>
-                This effect will be cancelled when Cyno leaves the field and
-                lasts a maximum of 18s.
-              </Typography>
-            ),
-          },
-          {
-            fields: [
-              {
-                node: infoMut(dmgFormulas.burst.hit1, {
-                  key: `1-Hit DMG`,
-                }),
-              },
-              {
-                node: infoMut(dmgFormulas.burst.hit2, {
-                  key: `2-Hit DMG`,
-                }),
-              },
-              {
-                node: infoMut(dmgFormulas.burst.hit3, {
-                  key: `3-Hit DMG`,
-                }),
-              },
-              {
-                node: infoMut(dmgFormulas.burst.hit41, {
-                  key: `4-Hit DMG`,
-                }),
-                textSuffix: "(1)",
-              },
-              {
-                node: infoMut(dmgFormulas.burst.hit42, {
-                  key: `4-Hit DMG`,
-                }),
-                textSuffix: "(2)",
-              },
-              {
-                node: infoMut(dmgFormulas.burst.hit5, {
-                  key: `5-Hit DMG`,
-                }),
-              },
-              {
-                node: infoMut(dmgFormulas.burst.charged, {
-                  key: `Charged Attack DMG`,
-                }),
-              },
-              {
-                text: <Typography>Charged Attack Stamina Cost</Typography>,
-                value: `${datamine.burst.stam[0]}`,
-              },
-              {
-                node: infoMut(dmgFormulas.burst.plunge, {
-                  key: `Plunge DMG`,
-                }),
-              },
-              {
-                node: infoMut(dmgFormulas.burst.plungeLow, {
-                  key: `Low Plunge DMG`,
-                }),
-              },
-              {
-                node: infoMut(dmgFormulas.burst.plungeHigh, {
-                  key: `High Plunge DMG`,
-                }),
-              },
-              {
-                text: <Typography>Basic Duration</Typography>,
-                value: `${datamine.burst.duration[0]}s`,
-              },
-              {
-                text: <Typography>CD</Typography>,
-                value: `${datamine.burst.cd[0]}s`,
-              },
-              {
-                text: <Typography>Energy Cost</Typography>,
-                value: `${datamine.burst.enerCost[0]}`,
-              },
-            ],
-          },
-          ct.conditionalTemplate("burst", {
-            value: burstActive,
-            path: burstActivePath,
-            name: "Burst Active",
-            states: {
-              burstActive: {
-                fields: [
-                  {
-                    node: elementalMasteryBonus,
-                  },
-                ],
-              },
+            {
+              text: tr("burst.skillParams.10"),
+              value: `${datamine.burst.duration[0]}s`,
             },
-          }),
-        ],
-      },
-
-      passive1: {
-        name: <Typography>Featherfall Judgment</Typography>,
-        img: talentAssets.passive1!,
-        sections: [
-          {
-            text: (
-              <Typography>
-                When Cyno is in the Pactsworn Pathclearer state activated by{" "}
-                <strong>Sacred Rite: Wolf's Swiftness</strong>, Cyno will enter
-                the Endseer stance at intervals. If he activates{" "}
-                <strong>Secret Rite: Chasmic Soulfarer</strong> whle affected by
-                this stance, he will activate the Judication effect, increasing
-                the DMG of this Secret Rite: Chasmic Soulfarer by 35%, and
-                firing off 3 Duststalker Bolts that deal 50% of Cyno's ATK as{" "}
-                <ColorText color="electro">Electro DMG</ColorText>.
-              </Typography>
-            ),
-          },
-          {
-            text: (
-              <Typography>
-                Duststalker Bolt DMG is considered Elemental Skill DMG.
-              </Typography>
-            ),
-          },
-          ct.conditionalTemplate("passive1", {
-            value: condJudication,
-            path: condJudicationPath,
-            name: "Judication",
-            states: {
-              judication: {
-                fields: [
-                  {
-                    node: infoMut(dmgFormulas.passive1.duststalkerBolt, {
-                      key: "Duststalker Bolt DMG",
-                    }),
-                  },
-                  {
-                    node: chasmicSaulfarerBonus,
-                  },
-                ],
-              },
+            {
+              text: tr("burst.skillParams.11"),
+              value: `${datamine.burst.cd[0]}s`,
             },
-          }),
-        ],
-      },
-      passive2: {
-        name: <Typography>Authority Over the Nine Bows</Typography>,
-        img: talentAssets.passive2!,
-        sections: [
-          {
-            text: (
-              <Typography>
-                Cyno's DMG values will be increased based on his Elemental
-                Mastery as follows:
-                <ul>
-                  <li>
-                    Pactsworn Pathclearer's Normal Attack DMG is increased by
-                    100% of his Elemental Mastery.
-                  </li>
-                  <li>
-                    Duststalker Bolt DMG from his Ascension Talent Featherfall
-                    Judgment is increased by 250% of his Elemental Mastery.
-                  </li>
-                </ul>
-              </Typography>
-            ),
-          },
-          {
-            fields: [
-              {
-                node: infoMut(
-                  prod(input.total.eleMas, percent(datamine.passive2.naMul)),
-                  {
-                    key: "Pactsworn Pathclearer's Normal Attack DMG Increase",
-                  }
-                ),
-              },
-              {
-                node: infoMut(
-                  prod(input.total.eleMas, percent(datamine.passive2.boltMult)),
-                  {
-                    key: "Duststalker Bolt DMG Increase",
-                  }
-                ),
-              },
-            ],
-          },
-        ],
-      },
-      passive3: {
-        name: <Typography>The Gift of Silence</Typography>,
-        img: talentAssets.passive3!,
-        sections: [
-          {
-            text: (
-              <Typography>
-                Gains 25% more rewards when dispatched on a Sumeru Expedition
-                for 20 hours.
-              </Typography>
-            ),
-          },
-        ],
-      },
-      constellation1: {
-        name: (
-          <Typography>
-            <strong>Ordinance: Unceasing Vigil</strong>
-          </Typography>
-        ),
-        img: talentAssets.constellation1!,
-        sections: [
-          {
-            text: (
-              <Typography>
-                After using <strong>Sacred Rite: Wolf's Swiftness</strong>,
-                Cyno's Normal Attack SPD will be increased by 20% for 10s. If
-                the Judication effect of the Ascension Talent Featherfall
-                Judgment is triggered during{" "}
-                <strong>Secret Rite: Chasmic Soulfarer</strong>, the duration of
-                this increase will be refreshed. You need to unlock the Passive
-                Talent "Featherfall Judgment."
-              </Typography>
-            ),
-          },
-        ],
-      },
-      constellation2: {
-        name: (
-          <Typography>
-            <strong>Ceremony: Homecoming of Spirits</strong>
-          </Typography>
-        ),
-        img: talentAssets.constellation2!,
-        sections: [
-          {
-            text: (
-              <Typography>
-                When Cyno's Normal Attacks hit opponents, his Normal Attack CRIT
-                Rate and CRIT DMG will be increased by 3% and 6% respectively
-                for 4s. This effect can be triggered once every 0.1s. Max 5
-                stacks. Each stack's duration is counted independently.
-              </Typography>
-            ),
-          },
-          ct.conditionalTemplate("constellation2", {
-            value: c2,
-            path: c2Path,
-            name: "Stacks",
-            states: Object.fromEntries(
-              c2Stacks.map((c) => [
-                c,
+            {
+              text: tr("burst.skillParams.12"),
+              value: `${datamine.burst.enerCost[0]}`,
+            },
+          ],
+        },
+        ct.conditionalTemplate("burst", {
+          value: burstActive,
+          path: burstActivePath,
+          name: trm("burst.burstActive"),
+          states: {
+            burstActive: {
+              fields: [
                 {
-                  name: `${c}`,
-                  fields: [
-                    {
-                      node: crIncrease,
-                    },
-                    {
-                      node: cdIncrease,
-                    },
-                  ],
+                  node: elementalMasteryBonus,
                 },
-              ])
-            ),
-          }),
-        ],
-      },
-      constellation3: {
-        name: (
-          <Typography>
-            <strong>Precept: Lawful Enforcer</strong>
-          </Typography>
-        ),
-        img: talentAssets.constellation3!,
-        sections: [
-          {
-            text: (
-              <Typography>
-                Increases the Level of{" "}
-                <strong>Sacred Rite: Wolf's Swiftness</strong> by 3. Maximum
-                upgrade level is 15.
-              </Typography>
-            ),
+              ],
+            },
           },
-          { fields: [{ node: nodeC3 }] },
-        ],
-      },
-      constellation4: {
-        name: (
-          <Typography>
-            <strong>Austerity: Forbidding Guard</strong>
-          </Typography>
-        ),
-        img: talentAssets.constellation4!,
-        sections: [
-          {
-            text: (
-              <Typography>
-                When Cyno is in the Pactsworn Pathclearer state triggered by{" "}
-                <strong>Sacred Rite: Wolf's Swiftness</strong>, after he
-                triggers Electro-Charged, Overloaded, Quicken, Hyperbloom, an
-                Electro Swirl or an Electro Crystallization reaction, he will
-                restore 3 Elemental Energy for all nearby party members (except
-                himself.)
-              </Typography>
-            ),
+        }),
+      ]),
+      passive1: ct.talentTemplate("passive1", [
+        ct.conditionalTemplate("passive1", {
+          value: condJudication,
+          path: condJudicationPath,
+          name: trm("judication"),
+          states: {
+            judication: {
+              fields: [
+                {
+                  node: infoMut(dmgFormulas.passive1.duststalkerBolt, {
+                    key: `char_${key}_gen:passive1.skillParams.0`,
+                  }),
+                },
+                {
+                  node: chasmicSaulfarerBonus,
+                },
+              ],
+            },
           },
-          {
-            text: (
-              <Typography>
-                This effect can occur 5 times within one use of{" "}
-                <strong>Sacred Rite: Wolf's Swiftness</strong>.
-              </Typography>
-            ),
-          },
-        ],
-      },
-      // constellation5: ct.talentTemplate("constellation5", [
-      //   { fields: [{ node: nodeC5 }] },
-      // ]),
-      constellation5: {
-        name: (
-          <Typography>
-            <strong>Funerary Rite: The Passing of Starlight</strong>
-          </Typography>
-        ),
-        img: talentAssets.constellation5!,
-        sections: [
-          {
-            text: (
-              <Typography>
-                Increases the Level of{" "}
-                <strong>Secret Rite: Chasmic Soulfarer</strong> by 3.
-              </Typography>
-            ),
-          },
-          {
-            text: <Typography>Maximum upgrade level is 15.</Typography>,
-          },
-          { fields: [{ node: nodeC5 }] },
-        ],
-      },
-      constellation6: {
-        name: (
-          <Typography>
-            <strong>Raiment: Just Scales</strong>
-          </Typography>
-        ),
-        img: talentAssets.constellation6!,
-        sections: [
-          {
-            text: (
-              <Typography>
-                After using <strong>Sacred Rite: Wolf's Swiftness</strong> or
-                triggering Judication, Cyno will gain 4 stacks of the "Day of
-                the Jackal" effect. When he hits opponents with Normal Attacks,
-                he will consume 1 stack of "Day of the Jackal" to trigger one
-                Duststalker Bolt. Day of the Jackal lasts for 8s. Max 8 stacks.
-                1 stack can be consumed every 0.4s. This effect will be canceled
-                once Pactsworn Pathclearer ends.
-              </Typography>
-            ),
-          },
-          {
-            text: (
-              <Typography>
-                You must unlock the Passive Talent "Featherfall Judgment."
-              </Typography>
-            ),
-          },
-        ],
-      },
+        }),
+      ]),
+      passive2: ct.talentTemplate("passive2", [
+        {
+          fields: [
+            {
+              node: infoMut(
+                prod(input.total.eleMas, percent(datamine.passive2.naMul)),
+                {
+                  key: `char_${key}_gen:passive2.skillParams.0`,
+                }
+              ),
+            },
+            {
+              node: infoMut(
+                prod(input.total.eleMas, percent(datamine.passive2.boltMult)),
+                {
+                  key: `char_${key}_gen:passive2.skillParams.1`,
+                }
+              ),
+            },
+          ],
+        },
+      ]),
+      passive3: ct.talentTemplate("passive3"),
+      constellation1: ct.talentTemplate("constellation1"),
+      constellation2: ct.talentTemplate("constellation2", [
+        ct.conditionalTemplate("constellation2", {
+          value: c2,
+          path: c2Path,
+          name: trm("c2.c2Stacks"),
+          states: Object.fromEntries(
+            c2Stacks.map((c) => [
+              c,
+              {
+                name: `${c}`,
+                fields: [
+                  {
+                    node: c2ElDmgBonus,
+                  },
+                ],
+              },
+            ])
+          ),
+        }),
+      ]),
+      constellation3: ct.talentTemplate("constellation3", [
+        { fields: [{ node: nodeC3 }] },
+      ]),
+      constellation4: ct.talentTemplate("constellation4"),
+      constellation5: ct.talentTemplate("constellation5", [
+        { fields: [{ node: nodeC5 }] },
+      ]),
+      constellation6: ct.talentTemplate("constellation6"),
     },
   },
 };
