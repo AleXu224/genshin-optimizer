@@ -190,6 +190,7 @@ export const weaponIdMap = {
   // 13506: "Deicide",
   13507: "CalamityQueller",
   13509: "EngulfingLightning",
+  13511: "StaffOfTheScarletSands",
 
   //catalyst
   14101: "ApprenticesNotes",

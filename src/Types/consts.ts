@@ -203,6 +203,7 @@ export const allWeaponPolearmKeys = [
   "RoyalSpear",
   "SkywardSpine",
   "StaffOfHoma",
+  "StaffOfTheScarletSands",
   "TheCatch",
   "VortexVanquisher",
   "WavebreakersFin",

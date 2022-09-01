@@ -422,7 +422,7 @@ const sheet: ICharacterSheet = {
         ct.conditionalTemplate("passive1", {
           value: condJudication,
           path: condJudicationPath,
-          name: trm("judication"),
+          name: trm("a1.judication"),
           states: {
             judication: {
               fields: [
