@@ -12,7 +12,7 @@ import {
 } from "../../../Formula/utils";
 import { CharacterKey } from "../../../Types/consts";
 import { range } from "../../../Util/Util";
-import { cond, trans } from "../../SheetUtil";
+import { cond, sgt, st, trans } from "../../SheetUtil";
 import CharacterSheet, {
   charTemplates,
   ICharacterSheet,
@@ -20,154 +20,75 @@ import CharacterSheet, {
 import { customDmgNode, dataObjForCharacterSheet, dmgNode } from "../dataUtil";
 import { banner, card, talentAssets, thumb, thumbSide } from "./assets";
 import data_gen_src from "./data_gen.json";
+import skillParam_gen from "./skillParam_gen.json";
 
 const data_gen = data_gen_src as CharacterData;
 
 const key: CharacterKey = "Cyno";
 const [tr, trm] = trans("char", key);
 const ct = charTemplates(key, data_gen.weaponTypeKey, talentAssets);
-
+let a = 0,
+  s = 0,
+  b = 0;
 const datamine = {
   normal: {
     hitArr: [
-      [
-        0.492574, 0.532667, 0.57276, 0.630036, 0.670129, 0.71595, 0.778954,
-        0.841957, 0.904961, 0.973692, 1.042423, 1.111154, 1.179886, 1.248617,
-        1.317348,
-      ], // 1
-      [
-        0.479209, 0.518215, 0.55722, 0.612942, 0.651947, 0.696525, 0.757819,
-        0.819113, 0.880408, 0.947274, 1.01414, 1.081007, 1.147873, 1.21474,
-        1.281606,
-      ], // 2
-      [
-        0.293062, 0.316916, 0.34077, 0.374847, 0.398701, 0.425963, 0.463447,
-        0.500932, 0.538417, 0.579309, 0.620201, 0.661094, 0.701986, 0.742879,
-        0.783771,
-      ], // 3.1
-      [
-        0.293062, 0.316916, 0.34077, 0.374847, 0.398701, 0.425963, 0.463447,
-        0.500932, 0.538417, 0.579309, 0.620201, 0.661094, 0.701986, 0.742879,
-        0.783771,
-      ], // 3.2
-      [
-        0.758907, 0.820679, 0.88245, 0.970695, 1.032466, 1.103063, 1.200132,
-        1.297202, 1.394271, 1.500165, 1.606059, 1.711953, 1.817847, 1.923741,
-        2.029635,
-      ], // 4
+      skillParam_gen.auto[a++], // 1
+      skillParam_gen.auto[a++], // 2
+      skillParam_gen.auto[a++], // 3.1
+      skillParam_gen.auto[a++], // 3.2
+      skillParam_gen.auto[a++], // 4
     ],
   },
   charged: {
-    dmg: [
-      1.161, 1.2555, 1.35, 1.485, 1.5795, 1.6875, 1.836, 1.9845, 2.133, 2.295,
-      2.457, 2.619, 2.781, 2.943, 3.105,
-    ],
-    stamina: [25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25],
+    dmg: skillParam_gen.auto[a++],
+    stamina: skillParam_gen.auto[a++],
   },
   plunging: {
-    dmg: [
-      0.639324, 0.691362, 0.7434, 0.81774, 0.869778, 0.92925, 1.011024,
-      1.092798, 1.174572, 1.26378, 1.352988, 1.442196, 1.531404, 1.620612,
-      1.70982,
-    ],
-    low: [
-      1.278377, 1.382431, 1.486485, 1.635134, 1.739187, 1.858106, 2.02162,
-      2.185133, 2.348646, 2.527025, 2.705403, 2.883781, 3.062159, 3.240537,
-      3.418915,
-    ],
-    high: [
-      1.596762, 1.726731, 1.8567, 2.04237, 2.172339, 2.320875, 2.525112,
-      2.729349, 2.933586, 3.15639, 3.379194, 3.601998, 3.824802, 4.047606,
-      4.27041,
-    ],
+    dmg: skillParam_gen.auto[a++],
+    low: skillParam_gen.auto[a++],
+    high: skillParam_gen.auto[a++],
   },
   skill: {
-    skillDmg: [
-      1.304, 1.4018, 1.4996, 1.63, 1.7278, 1.8256, 1.956, 2.0864, 2.2168,
-      2.3472, 2.4776, 2.608, 2.771, 2.934, 3.097,
-    ],
-    mortuaryRiteDmg: [
-      1.568, 1.6856, 1.8032, 1.96, 2.0776, 2.1952, 2.352, 2.5088, 2.6656,
-      2.8224, 2.9792, 3.136, 3.332, 3.528, 3.724,
-    ],
-    pathclearerDurationBonus: [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-    cd: [
-      7.5, 7.5, 7.5, 7.5, 7.5, 7.5, 7.5, 7.5, 7.5, 7.5, 7.5, 7.5, 7.5, 7.5, 7.5,
-    ],
-    mortuaryRiteCd: [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+    skillDmg: skillParam_gen.skill[s++],
+    mortuaryRiteDmg: skillParam_gen.skill[s++],
+    pathclearerDurationBonus: skillParam_gen.skill[s++],
+    cd: skillParam_gen.skill[s++],
+    mortuaryRiteCd: skillParam_gen.skill[s++],
   },
   burst: {
-    hit1: [
-      0.782832, 0.846551, 0.91027, 1.001297, 1.065016, 1.137838, 1.237967,
-      1.338097, 1.438227, 1.547459, 1.656691, 1.765924, 1.875156, 1.984389,
-      2.093621,
-    ],
-    hit2: [
-      0.824688, 0.891814, 0.95894, 1.054834, 1.12196, 1.198675, 1.304158,
-      1.409642, 1.515125, 1.630198, 1.745271, 1.860344, 1.975416, 2.090489,
-      2.205562,
-    ],
-    hit3: [
-      1.046336, 1.131503, 1.21667, 1.338337, 1.423504, 1.520837, 1.654671,
-      1.788505, 1.922339, 2.068339, 2.214339, 2.36034, 2.50634, 2.652341,
-      2.798341,
-    ],
-    hit41: [
-      0.516942, 0.559018, 0.601095, 0.661205, 0.703281, 0.751369, 0.817489,
-      0.88361, 0.94973, 1.021861, 1.093993, 1.166124, 1.238256, 1.310387,
-      1.382518,
-    ],
-    hit42: [
-      0.516942, 0.559018, 0.601095, 0.661205, 0.703281, 0.751369, 0.817489,
-      0.88361, 0.94973, 1.021861, 1.093993, 1.166124, 1.238256, 1.310387,
-      1.382518,
-    ],
-    hit5: [
-      1.308447, 1.414948, 1.52145, 1.673595, 1.780096, 1.901812, 2.069172,
-      2.236531, 2.403891, 2.586465, 2.769039, 2.951613, 3.134187, 3.316761,
-      3.499335,
-    ],
-    charged: [
-      1.0105, 1.09275, 1.175, 1.2925, 1.37475, 1.46875, 1.598, 1.72725, 1.8565,
-      1.9975, 2.1385, 2.2795, 2.4205, 2.5615, 2.7025,
-    ],
-    stam: [25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25],
-    plunge: [
-      0.639324, 0.691362, 0.7434, 0.81774, 0.869778, 0.92925, 1.011024,
-      1.092798, 1.174572, 1.26378, 1.352988, 1.442196, 1.531404, 1.620612,
-      1.70982,
-    ],
-    plungeLow: [
-      1.278377, 1.382431, 1.486485, 1.635134, 1.739187, 1.858106, 2.02162,
-      2.185133, 2.348646, 2.527025, 2.705403, 2.883781, 3.062159, 3.240537,
-      3.418915,
-    ],
-    plungeHigh: [
-      1.596762, 1.726731, 1.8567, 2.04237, 2.172339, 2.320875, 2.525112,
-      2.729349, 2.933586, 3.15639, 3.379194, 3.601998, 3.824802, 4.047606,
-      4.27041,
-    ],
-    emBonus: [
-      100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,
-    ],
-    duration: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
-    cd: [20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20],
-    enerCost: [80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80],
+    hit1: skillParam_gen.burst[b++],
+    hit2: skillParam_gen.burst[b++],
+    hit3: skillParam_gen.burst[b++],
+    hit41: skillParam_gen.burst[b++],
+    hit42: skillParam_gen.burst[b++],
+    hit5: skillParam_gen.burst[b++],
+    charged: skillParam_gen.burst[b++],
+    stam: skillParam_gen.burst[b++],
+    plunge: skillParam_gen.burst[b++],
+    plungeLow: skillParam_gen.burst[b++],
+    plungeHigh: skillParam_gen.burst[b++],
+    emBonus: skillParam_gen.burst[b++],
+    duration: skillParam_gen.burst[b++],
+    cd: skillParam_gen.burst[b++],
+    enerCost: skillParam_gen.burst[b++],
   },
   passive1: {
-    duststalkerBoltDmg: 0.5,
-    skillBonus: 0.35,
+    duststalkerBoltDmg: skillParam_gen.passive1[0][0],
+    skillBonus: skillParam_gen.passive1[1][0],
   },
   passive2: {
-    naMul: 1.25,
-    boltMult: 2.5,
+    naMul: skillParam_gen.passive2[0][0],
+    boltMult: skillParam_gen.passive2[1][0],
   },
   constellation2: {
-    maxStacks: 5,
-    dmgBonus: 0.1,
-  }
+    maxStacks: skillParam_gen.constellation2[0][0],
+    crBonus: skillParam_gen.constellation2[1][0],
+    cdBonus: skillParam_gen.constellation2[2][0],
+  },
 };
 
+// Passive 1
 const [condJudicationPath, condJudication] = cond(key, "judication");
 const chasmicSaulfarerBonus = equal(
   condJudication,
@@ -175,6 +96,20 @@ const chasmicSaulfarerBonus = equal(
   constant(datamine.passive1.skillBonus)
 );
 
+function duststalkerBolt() {
+  return customDmgNode(
+    prod(datamine.passive1.duststalkerBoltDmg, input.total.atk),
+    "skill",
+    {
+      hit: {
+        ele: constant("electro"),
+        dmgInc: prod(input.total.eleMas, percent(datamine.passive2.boltMult)),
+      },
+    }
+  );
+}
+
+// Burst
 const [burstActivePath, burstActive] = cond(key, "burstActive");
 const elementalMasteryBonus = equal(
   burstActive,
@@ -206,22 +141,10 @@ function burstAtks(multipliers: number[]) {
   );
 }
 
-function duststalkerBolt() {
-  return customDmgNode(
-    prod(datamine.passive1.duststalkerBoltDmg, input.total.atk),
-    "skill",
-    {
-      hit: {
-        ele: constant("electro"),
-        dmgInc: prod(input.total.eleMas, percent(datamine.passive2.boltMult)),
-      },
-    }
-  );
-}
-
+// Constellation 2
 const c2Stacks = range(1, datamine.constellation2.maxStacks);
 const [c2Path, c2] = cond(key, "c2");
-const c2ElDmgBonus = greaterEq(
+const c2CrBonus = greaterEq(
   input.constellation,
   2,
   prod(
@@ -230,7 +153,19 @@ const c2ElDmgBonus = greaterEq(
       Object.fromEntries(c2Stacks.map((i) => [i, constant(i)])),
       constant(0)
     ),
-    datamine.constellation2.dmgBonus,
+    datamine.constellation2.crBonus
+  )
+);
+const c2CdBonus = greaterEq(
+  input.constellation,
+  2,
+  prod(
+    lookup(
+      c2,
+      Object.fromEntries(c2Stacks.map((i) => [i, constant(i)])),
+      constant(0)
+    ),
+    datamine.constellation2.cdBonus
   )
 );
 
@@ -285,7 +220,8 @@ export const data = dataObjForCharacterSheet(
     premod: {
       skill_dmg_: chasmicSaulfarerBonus,
       eleMas: elementalMasteryBonus,
-      electro_dmg_: c2ElDmgBonus,
+      critRate_: c2CrBonus,
+      critDMG_: c2CdBonus,
     },
   }
 );
@@ -467,15 +403,20 @@ const sheet: ICharacterSheet = {
         ct.conditionalTemplate("constellation2", {
           value: c2,
           path: c2Path,
-          name: trm("c2.c2Stacks"),
+          name: st("hits"),
           states: Object.fromEntries(
             c2Stacks.map((c) => [
               c,
               {
-                name: `${c}`,
+                name: st(`${c === 1 ? "hits_one" : "hits_other"}`, {
+                  count: c,
+                }),
                 fields: [
                   {
-                    node: c2ElDmgBonus,
+                    node: c2CrBonus,
+                  },
+                  {
+                    node: c2CdBonus,
                   },
                 ],
               },
