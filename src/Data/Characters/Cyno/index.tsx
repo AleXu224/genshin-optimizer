@@ -83,8 +83,7 @@ const datamine = {
   },
   constellation2: {
     maxStacks: skillParam_gen.constellation2[0][0],
-    crBonus: skillParam_gen.constellation2[1][0],
-    cdBonus: skillParam_gen.constellation2[2][0],
+    elBonus: skillParam_gen.constellation2[1][0],
   },
 };
 
@@ -144,7 +143,7 @@ function burstAtks(multipliers: number[]) {
 // Constellation 2
 const c2Stacks = range(1, datamine.constellation2.maxStacks);
 const [c2Path, c2] = cond(key, "c2");
-const c2CrBonus = greaterEq(
+const c2ElBonus = greaterEq(
   input.constellation,
   2,
   prod(
@@ -153,19 +152,7 @@ const c2CrBonus = greaterEq(
       Object.fromEntries(c2Stacks.map((i) => [i, constant(i)])),
       constant(0)
     ),
-    datamine.constellation2.crBonus
-  )
-);
-const c2CdBonus = greaterEq(
-  input.constellation,
-  2,
-  prod(
-    lookup(
-      c2,
-      Object.fromEntries(c2Stacks.map((i) => [i, constant(i)])),
-      constant(0)
-    ),
-    datamine.constellation2.cdBonus
+    datamine.constellation2.elBonus
   )
 );
 
@@ -220,8 +207,7 @@ export const data = dataObjForCharacterSheet(
     premod: {
       skill_dmg_: chasmicSaulfarerBonus,
       eleMas: elementalMasteryBonus,
-      critRate_: c2CrBonus,
-      critDMG_: c2CdBonus,
+      electro_dmg_: c2ElBonus,
     },
   }
 );
@@ -413,10 +399,7 @@ const sheet: ICharacterSheet = {
                 }),
                 fields: [
                   {
-                    node: c2CrBonus,
-                  },
-                  {
-                    node: c2CdBonus,
+                    node: c2ElBonus,
                   },
                 ],
               },

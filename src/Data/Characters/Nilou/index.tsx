@@ -84,6 +84,7 @@ const datamine = {
   passive2: {
     hp: skillParam_gen.passive2[0][0],
     multiplier: skillParam_gen.passive2[1][0],
+    maxBuff: skillParam_gen.passive2[2][0],
   },
   constellation1: {
     dmgIncrease: skillParam_gen.constellation1[0][0],
@@ -135,7 +136,7 @@ const a2Buff = greaterEq(
       ),
       percent(datamine.passive2.multiplier)
     ),
-    percent(3)
+    percent(datamine.passive2.maxBuff)
   )
 );
 
