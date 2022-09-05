@@ -95,7 +95,7 @@
   "passive1": {
     "name": "Featherfall Judgment",
     "description": {
-      "0": "When Cyno is in the Pactsworn Pathclearer state activated by <strong>Sacred Rite: Wolf's Swiftness</strong>, Cyno will enter the Endseer stance at intervals. If he activates <strong>Secret Rite: Chasmic Soulfarer</strong> whle affected by this stance, he will activate the Judication effect, increasing the DMG of this Secret Rite: Chasmic Soulfarer by 35%, and firing off 3 Duststalker Bolts that deal 50% of Cyno's ATK as <electro>Electro DMG</electro>.",
+      "0": "When Cyno is in the Pactsworn Pathclearer state activated by <strong>Sacred Rite: Wolf's Swiftness</strong>, Cyno will enter the Endseer stance at intervals. If he activates <strong>Secret Rite: Chasmic Soulfarer</strong> whle affected by this stance, he will activate the Judication effect, increasing the DMG of this Secret Rite: Chasmic Soulfarer by 35%, and firing off 3 Duststalker Bolts that deal 100% of Cyno's ATK as <electro>Electro DMG</electro>.",
       "1": "Duststalker Bolt DMG is considered Elemental Skill DMG."
     },
     "skillParams": {
@@ -107,7 +107,7 @@
     "description": {
       "0": "Cyno's DMG values will be increased based on his Elemental Mastery as follows:",
       "1": [
-        "Pactsworn Pathclearer's Normal Attack DMG is increased by 125% of his Elemental Mastery.",
+        "Pactsworn Pathclearer's Normal Attack DMG is increased by 150% of his Elemental Mastery.",
         "Duststalker Bolt DMG from his Ascension Talent Featherfall Judgment is increased by 250% of his Elemental Mastery."
       ]
     },
@@ -132,7 +132,7 @@
   "constellation2": {
     "name": "Ceremony: Homecoming of Spirits",
     "description": {
-      "0": "When Cyno's Normal Attacks hit opponents, his Normal Attack CRIT Rate and CRIT DMG will be increased by 3% and 6% respectively for 4s. This effect can be triggered once every 0.1s. Max 5 stacks. Each stack's duration is counted independently."
+      "0": "When Cyno's Normal Attacks hit opponents, his <electro>Electro Damage Bonus</electro> will be increased by 10% for 4s. This effect can be triggered once every 0.1s. Max 5 stacks. Each stack's duration is counted independently."
     }
   },
   "constellation3": {
