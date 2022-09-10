@@ -13,6 +13,7 @@ import Collei from './Collei'
 import Cyno from './Cyno'
 import Diluc from './Diluc'
 import Diona from './Diona'
+import Dori from './Dori'
 import Eula from './Eula'
 import Fischl from './Fischl'
 import Ganyu from './Ganyu'
@@ -70,6 +71,7 @@ const characters: Record<CharacterKey, CharacterSheet> = {
   Cyno,
   Diluc,
   Diona,
+  Dori,
   Eula,
   Fischl,
   Ganyu,
