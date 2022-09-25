@@ -178,6 +178,29 @@ describe("Database", () => {
     expect(importResult.characters?.new?.length).toEqual(2)
   })
 
+  test("Test import with no equip", async () => {
+    // When adding artifacts with equipment, expect character/weapons to be created
+    const art1 = cachedArtifact(await randomizeArtifact({ slotKey: "circlet" }), "").artifact
+
+    // Implicitly assign location
+    const id = database.arts.new({ ...art1, location: "Amber" })
+
+    expect(database.chars.get("Amber")!.equippedArtifacts.circlet).toEqual(id)
+
+    const good: IGOOD = {
+      format: "GOOD",
+      version: 1,
+      source: "Scanner",
+      artifacts: [
+        art1
+      ]
+    }
+
+    // Import the new artifact, with no location. this should respect current equipment
+    importGOOD(good, database, false, false)
+    expect(database.chars.get("Amber")!.equippedArtifacts.circlet).toEqual(id)
+  })
+
   test("Test partial merge", async () => {
     // Add Character and Artifact
     const albedo = initialCharacter("Albedo")
@@ -216,5 +239,44 @@ describe("Database", () => {
     expect(database.arts.get(circletId)?.setKey).toEqual("Adventurer")
     expect(database.weapons.get(database.chars.get("Albedo")!.equippedWeapon)?.key).toEqual("Akuoumaru")
   })
+  test("Test Traveler share equipment", async () => {
+    database.chars.set("TravelerAnemo", initialCharacter("TravelerAnemo"))
+    database.chars.set("TravelerGeo", initialCharacter("TravelerGeo"))
+    const art1 = await randomizeArtifact({ slotKey: "circlet", setKey: "EmblemOfSeveredFate" })
+    const art1Id = database.arts.new({ ...art1, location: "Traveler" })
+    database.chars.set("TravelerElectro", initialCharacter("TravelerElectro"))
 
+    expect(database.chars.get("TravelerAnemo")!.equippedArtifacts.circlet).toEqual(art1Id)
+    expect(database.chars.get("TravelerGeo")!.equippedArtifacts.circlet).toEqual(art1Id)
+    expect(database.chars.get("TravelerElectro")!.equippedArtifacts.circlet).toEqual(art1Id)
+    const weapon1Id = database.chars.get("TravelerAnemo")!.equippedWeapon
+    expect(database.chars.get("TravelerGeo")!.equippedWeapon).toEqual(weapon1Id)
+    expect(database.chars.get("TravelerElectro")!.equippedWeapon).toEqual(weapon1Id)
+
+    const art2 = await randomizeArtifact({ slotKey: "circlet", setKey: "ArchaicPetra" })
+    const art2Id = database.arts.new({ ...art2, location: "Traveler" })
+    expect(database.chars.get("TravelerAnemo")!.equippedArtifacts.circlet).toEqual(art2Id)
+    expect(database.chars.get("TravelerGeo")!.equippedArtifacts.circlet).toEqual(art2Id)
+    expect(database.chars.get("TravelerElectro")!.equippedArtifacts.circlet).toEqual(art2Id)
+
+    const weapon2Id = database.weapons.new({ ...initialWeapon("SkywardBlade"), location: "Traveler" })
+    expect(database.chars.get("TravelerAnemo")!.equippedWeapon).toEqual(weapon2Id)
+    expect(database.chars.get("TravelerGeo")!.equippedWeapon).toEqual(weapon2Id)
+    expect(database.chars.get("TravelerElectro")!.equippedWeapon).toEqual(weapon2Id)
+
+    // deletion dont remove equipment until all traveler is gone
+    database.chars.remove("TravelerElectro")
+    database.chars.remove("TravelerGeo")
+
+    expect(database.chars.get("TravelerAnemo")!.equippedArtifacts.circlet).toEqual(art2Id)
+    expect(database.chars.get("TravelerAnemo")!.equippedWeapon).toEqual(weapon2Id)
+    expect(database.arts.get(art2Id)!.location).toEqual("Traveler")
+    expect(database.weapons.get(weapon2Id)!.location).toEqual("Traveler")
+
+    // deletion of final traveler unequips
+    database.chars.remove("TravelerAnemo")
+
+    expect(database.arts.get(art2Id)!.location).toEqual("")
+    expect(database.weapons.get(weapon2Id)!.location).toEqual("")
+  })
 })

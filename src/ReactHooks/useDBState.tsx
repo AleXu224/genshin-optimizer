@@ -16,7 +16,3 @@ export default function useDBState<O extends object>(key: string, init: () => O)
 
   return [state ?? init(), updateState]
 }
-
-export function dbMetaInit(index: number) {
-  return () => ({ name: `Database ${index}`, lastEdit: 0 })
-}
