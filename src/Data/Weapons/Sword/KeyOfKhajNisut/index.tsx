@@ -33,10 +33,14 @@ const teamEleMasbuff = equal("3", condStacks, prod(
   )
 ));
 
+const hpBonus = [0.2, 0.25, 0.3, 0.35, 0.4];
+const hp_ = subscript(input.weapon.refineIndex, hpBonus);
+
 
 const data = dataObjForWeaponSheet(key, data_gen, {
   premod: {
-    eleMas: eleMasbuff
+    eleMas: eleMasbuff,
+    hp_,
   },
   teamBuff: {
     premod: {
@@ -51,7 +55,7 @@ const sheet: IWeaponSheet = {
   document: [
     {
       header: headerTemplate(key, icon, iconAwaken, st("base")),
-      fields: [],
+      fields: [{node: hp_}],
     },
     {
       path: condStacksPath,

@@ -224,21 +224,21 @@ const dmgFormulas = {
     ])
   ),
   skill: {
-    skillDmg: dmgNode("atk", datamine.skill.skillDmg, "skill"),
-    whirlingSteps1: dmgNode("atk", datamine.skill.whirlingStep1, "skill"),
-    whirlingSteps2: dmgNode("atk", datamine.skill.whirlingStep2, "skill"),
-    wateryMoon: dmgNode("atk", datamine.skill.wateryMoon, "skill"),
-    waterWheel: dmgNode("atk", datamine.skill.waterWheel, "skill", {
+    skillDmg: dmgNode("hp", datamine.skill.skillDmg, "skill"),
+    whirlingSteps1: dmgNode("hp", datamine.skill.whirlingStep1, "skill"),
+    whirlingSteps2: dmgNode("hp", datamine.skill.whirlingStep2, "skill"),
+    wateryMoon: dmgNode("hp", datamine.skill.wateryMoon, "skill", {
       hit: {
         dmgBonus: c1Buff,
       },
     }),
-    swordDance1: dmgNode("atk", datamine.skill.swordDance1, "skill"),
-    swordDance2: dmgNode("atk", datamine.skill.swordDance2, "skill"),
+    waterWheel: dmgNode("hp", datamine.skill.waterWheel, "skill"),
+    swordDance1: dmgNode("hp", datamine.skill.swordDance1, "skill"),
+    swordDance2: dmgNode("hp", datamine.skill.swordDance2, "skill"),
   },
   burst: {
-    dmg: dmgNode("atk", datamine.burst.dmg, "burst"),
-    lingeringDmg: dmgNode("atk", datamine.burst.lingeringDmg, "burst"),
+    dmg: dmgNode("hp", datamine.burst.dmg, "burst"),
+    lingeringDmg: dmgNode("hp", datamine.burst.lingeringDmg, "burst"),
   },
   passive1: {
     bountifulCore: bountifulCore,
