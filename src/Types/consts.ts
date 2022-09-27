@@ -161,6 +161,7 @@ export const allWeaponSwordKeys = [
   "CinnabarSpindle",
   "CoolSteel",
   "KagotsurubeIsshin",
+  "KeyOfKhajNisut",
   "DarkIronSword",
   "DullBlade",
   "FavoniusSword",
