@@ -65,7 +65,6 @@ export const nonTravelerCharacterKeys = [
   "Beidou",
   "Bennett",
   "Chongyun",
-  "Cyno",
   "Diluc",
   "Diona",
   "Fischl",
