@@ -1,8 +1,6 @@
 {
-  "burst": {
-    "burstActive": "Burst Active"
-  },
-  "a1": {
-    "judication": "Judication"
-  }
+  "p1Dmg": "Duststalker Bolt DMG",
+  "judication": "After activating the Judication effect",
+  "burstNormalDmgInc": "Pactsworn Pathclearer's Normal Attack DMG Inc.",
+  "boltDmgInc": "Duststalker Bolt DMG Inc."
 }
