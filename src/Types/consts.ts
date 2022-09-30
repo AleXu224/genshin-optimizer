@@ -295,6 +295,7 @@ export type WeaponBowKey = typeof allWeaponBowKeys[number]
 
 export const allWeaponCatalystKeys = [
   "ApprenticesNotes",
+  "AThousandFloatingDreams",
   "BlackcliffAgate",
   "DodocoTales",
   "EmeraldOrb",
