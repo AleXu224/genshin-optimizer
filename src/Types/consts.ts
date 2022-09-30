@@ -118,6 +118,7 @@ export const nonTravelerCharacterKeys = [
   "Tighnari",
   "Cyno",
   "Candace",
+  "Nahida",
 ] as const
 export const locationCharacterKeys = [
   ...nonTravelerCharacterKeys,
