@@ -1,7 +1,7 @@
 import { AssetType } from '../AssetType'
 import banner from './Banner.png'
 import burst from './burst.png'
-import card from './Character_Klee_Card.jpg'
+import card from './Character_Nahida_Card.jpg'
 import constellation1 from './constellation1.png'
 import constellation2 from './constellation2.png'
 import constellation3 from './constellation3.png'

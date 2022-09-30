@@ -1,5 +1,11 @@
 {
   "burstPyro_": "<pyro>Pyro</pyro>: DMG Bonus",
   "burstElectro": "<electro>Electro</electro>: CD Decrease",
-  "burstHydro": "<hydro>Hydro</hydro>: Duration Extension"
+  "burstHydro": "<hydro>Hydro</hydro>: Duration Extension",
+  "a4Dmg_": "<strong>Tri-Karma Purification</strong> Bonus DMG",
+  "a4CritRate_": "<strong>Tri-Karma Purification</strong> Crit Rate",
+  "c2CondSeed": "Opponent marked by <strong>Seed of Skandha</strong>",
+  "c2Def": "Opponent affected by Quicken, Aggravate or Spread",
+  "c4Cond": "Opponents affected",
+  "c6Atk": "Karmic Oblivion"
 }
