@@ -120,10 +120,16 @@ type MoveExtKey = HitMoveDmgKey | HitMoveDmgIncKey | HitMoveCritRateKey | HitMov
 
 /* Transformation extension keys */
 export type TransformativeReactionsDmgKey = `${TransformativeReactionsKey}_dmg_`
+export type TransformativeReactionsCritDmgKey = `${TransformativeReactionsKey}_critDMG_`
+export type TransformativeReactionsCritRateKey = `${TransformativeReactionsKey}_critRate_`
 export const allTransformativeReactionsDmgKeys = Object.keys(transformativeReactions).map(e => `${e}_dmg_`) as TransformativeReactionsDmgKey[]
+export const allTransformativeReactionsCritDmgKeys = Object.keys(transformativeReactions).map(e => `${e}_critDMG_`) as TransformativeReactionsCritDmgKey[]
+export const allTransformativeReactionsCritRateKeys = Object.keys(transformativeReactions).map(e => `${e}_critRate_`) as TransformativeReactionsCritRateKey[]
 
 Object.entries(transformativeReactions).forEach(([reaction, { name }]) => {
   statMap[`${reaction}_dmg_`] = `${name} DMG Bonus`
+  statMap[`${reaction}_critDMG_`] = `${name} CRIT DMG Bonus`
+  statMap[`${reaction}_critRate_`] = `${name} CRIT Rate Bonus`
 })
 
 Object.entries(transformativeReactions).forEach(([reaction, { name, variants }]) => {
@@ -157,7 +163,7 @@ Object.entries(additiveReactions).forEach(([reaction, { name }]) => {
 })
 
 /* EVERY stat key */
-export type StatKey = BaseKeys | ElementExtKey | MoveExtKey | TransformativeReactionsDmgKey | AmplifyingReactionsDmgKey | AdditiveReactionsDmgKey
+export type StatKey = BaseKeys | ElementExtKey | MoveExtKey | TransformativeReactionsDmgKey | TransformativeReactionsCritRateKey | TransformativeReactionsCritDmgKey | AmplifyingReactionsDmgKey | AdditiveReactionsDmgKey
 
 export type KeyMapPrefix = 'default' | 'base' | 'total' | 'uncapped' | 'custom' | 'char' | 'art' | 'weapon' | 'teamBuff'
 const subKeyMap: StrictDict<KeyMapPrefix, string> = {

@@ -22,7 +22,10 @@ const allMisc = [
 const allModStats = [
   ...allArtModStats,
   ...(["all", ...allTransformative, ...allAmplifying, ...allAdditive, ...allMoves, "normalEle"] as const).map(x => `${x}_dmg_` as const),
+  ...allTransformative.map(x => `${x}_critDMG_` as const),
+  ...allTransformative.map(x => `${x}_critRate_` as const),
 ] as const
+
 const allNonModStats = [
   ...allElements.flatMap(x => [
     `${x}_dmgInc` as const,
@@ -56,6 +59,7 @@ for (const ele of allElements) {
 for (const reaction of [...allTransformative, ...allAmplifying, ...allAdditive]) {
   allModStatNodes[`${reaction}_dmg_`].info!.variant = reaction
 }
+
 allNonModStatNodes.healInc.info!.variant = "heal"
 allNonModStatNodes.incHeal_.info!.variant = "heal"
 allModStatNodes.heal_.info!.variant = "heal"
