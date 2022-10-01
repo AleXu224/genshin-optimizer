@@ -260,6 +260,13 @@ const sheet: ICharacterSheet = {
             node: infoMut(dmgFormulas.charged.dmg1, {
               key: `char_${key}_gen:auto.skillParams.3`,
             }),
+            textSuffix: "(1)"
+          },
+          {
+            node: infoMut(dmgFormulas.charged.dmg2, {
+              key: `char_${key}_gen:auto.skillParams.3`,
+            }),
+            textSuffix: "(2)"
           },
           {
             text: tr("auto.skillParams.4"),
@@ -423,7 +430,7 @@ const sheet: ICharacterSheet = {
                 text: sgt("duration"),
                 value: datamine.constellation4.duration,
                 unit: "s",
-              }
+              },
             ],
           },
         },
@@ -444,7 +451,7 @@ const sheet: ICharacterSheet = {
             text: trm("c6SlugDmgInc_"),
             value: datamine.constellation6.slugDmgInc_ * 100,
             unit: "%",
-          }
+          },
         ],
       },
     ]),
