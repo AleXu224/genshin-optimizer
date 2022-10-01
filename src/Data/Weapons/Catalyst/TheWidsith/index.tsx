@@ -24,6 +24,7 @@ const electro_dmg_ = equal("aria", condPassive, subscript(input.weapon.refineInd
 const geo_dmg_ = equal("aria", condPassive, subscript(input.weapon.refineIndex, refinementEleDmgVals))
 const hydro_dmg_ = equal("aria", condPassive, subscript(input.weapon.refineIndex, refinementEleDmgVals))
 const pyro_dmg_ = equal("aria", condPassive, subscript(input.weapon.refineIndex, refinementEleDmgVals))
+const dendro_dmg_ = equal("aria", condPassive, subscript(input.weapon.refineIndex, refinementEleDmgVals))
 const eleMas = equal("interlude", condPassive, subscript(input.weapon.refineIndex, refinementEleMasVals))
 
 const data = dataObjForWeaponSheet(key, data_gen, {
@@ -35,6 +36,7 @@ const data = dataObjForWeaponSheet(key, data_gen, {
     geo_dmg_,
     hydro_dmg_,
     pyro_dmg_,
+    dendro_dmg_,
     eleMas
   }
 })
@@ -63,6 +65,8 @@ const sheet: IWeaponSheet = {
           node: hydro_dmg_
         }, {
           node: pyro_dmg_
+        }, {
+          node: dendro_dmg_
         }, {
           text: sgt("duration"),
           value: 10,
