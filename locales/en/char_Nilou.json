@@ -1,10 +1,6 @@
 {
   "passive1": {
-    "hitByDendro": "Hit by <dendro>Dendro attacks</dendro>",
-    "bountifulCore": "Bountiful Core DMG"
-  },
-  "passive2": {
-    "a2Buff": "Bountfiul Core DMG Increase"
+    "hitByDendro": "Hit by <dendro>Dendro attacks</dendro>"
   },
   "constellation1": {
     "c1Buff": "Watery Moon DMG Increase",
