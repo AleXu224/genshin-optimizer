@@ -1,31 +1,24 @@
 import { CharacterData } from "pipeline";
-import { input, tally, target } from "../../../Formula";
-import { Data } from "../../../Formula/type";
+import { input, tally } from "../../../Formula";
 import {
   constant,
   equal,
-  frac,
   greaterEq,
   infoMut,
-  lookup,
   max,
   min,
   naught,
-  one,
   percent,
   prod,
-  subscript,
   sum,
 } from "../../../Formula/utils";
-import { transformativeReactionLevelMultipliers } from "../../../KeyMap/StatConstants";
 import { CharacterKey, ElementKey } from "../../../Types/consts";
-import { clamp, range } from "../../../Util/Util";
-import { cond, sgt, st, trans } from "../../SheetUtil";
+import { cond, sgt, trans } from "../../SheetUtil";
 import CharacterSheet, {
   charTemplates,
   ICharacterSheet,
 } from "../CharacterSheet";
-import { customDmgNode, dataObjForCharacterSheet, dmgNode } from "../dataUtil";
+import { dataObjForCharacterSheet, dmgNode } from "../dataUtil";
 import assets from "./assets";
 import data_gen_src from "./data_gen.json";
 import skillParam_gen from "./skillParam_gen.json";
@@ -122,31 +115,23 @@ const a1EmBuff = equal(
   equal(a1TeamCond, 1, constant(datamine.passive1.em))
 );
 
-const a2Buff = greaterEq(
+const a4Buff = greaterEq(
   input.asc,
   4,
   min(
     prod(
-      max(
+      greaterEq(
+        input.total.hp,
+        datamine.passive2.hp,
         prod(
           percent(0.001),
           sum(input.total.hp, prod(datamine.passive2.hp, -1))
         ),
-        percent(0)
       ),
       percent(datamine.passive2.multiplier)
     ),
     percent(datamine.passive2.maxBuff)
   )
-);
-
-const bountifulCore = prod(
-  subscript(input.lvl, transformativeReactionLevelMultipliers, {
-    key: "transformative_level_multi",
-  }),
-  2,
-  sum(one, prod(16, frac(input.total.eleMas, 2000)), a2Buff),
-  input.enemy[`dendro_resMulti`]
 );
 
 const c1Buff = greaterEq(
@@ -240,19 +225,16 @@ const dmgFormulas = {
     dmg: dmgNode("hp", datamine.burst.dmg, "burst"),
     lingeringDmg: dmgNode("hp", datamine.burst.lingeringDmg, "burst"),
   },
-  passive1: {
-    bountifulCore: bountifulCore,
-  },
   passive2: {
-    a2Buff: a2Buff,
-  },
+    a4Buff
+  }
 };
 const burstC3 = greaterEq(input.constellation, 3, 3);
 const skillC5 = greaterEq(input.constellation, 5, 3);
 export const data = dataObjForCharacterSheet(
   key,
   elementKey,
-  "inazuma",
+  "sumeru",
   data_gen,
   dmgFormulas,
   {
@@ -263,7 +245,7 @@ export const data = dataObjForCharacterSheet(
     teamBuff: {
       premod: {
         eleMas: a1EmBuff,
-        bloom_dmg_: a2Buff,
+        bloom_dmg_: a4Buff,
         hydro_enemyRes_: c2HydroShred,
         dendro_enemyRes_: c2DendroShred,
       },
@@ -352,31 +334,37 @@ const sheet: ICharacterSheet = {
           })),
           {
             text: tr("skill.skillParams.10"),
-            value: `${datamine.skill.pirouetteDuration}s`,
+            value: datamine.skill.pirouetteDuration,
+            unit: "s",
           },
           {
             text: tr("skill.skillParams.9"),
-            value: `${datamine.skill.lunarPrayerDuration}s`,
+            value: datamine.skill.lunarPrayerDuration,
+            unit: "s",
           },
           {
             text: tr("skill.skillParams.7"),
-            value: `${datamine.skill.tranquilityDuration}s`,
+            value: datamine.skill.tranquilityDuration,
+            unit: "s",
           },
           {
             text: tr("skill.skillParams.8"),
-            value: `${datamine.skill.cd}s`,
+            value: datamine.skill.cd,
+            unit: "s",
           },
         ],
       },
       ct.headerTemplate("constellation1", {
         fields: [
           {
-            value: `${datamine.constellation1.dmgIncrease * 100}%`,
+            value: datamine.constellation1.dmgIncrease * 100,
             text: trm("constellation1.c1Buff"),
+            unit: "%",
           },
           {
-            value: `${datamine.constellation1.durationIncrease}s`,
+            value: datamine.constellation1.durationIncrease,
             text: trm("constellation1.c1Duration"),
+            unit: "s",
           },
         ],
       }),
@@ -419,7 +407,8 @@ const sheet: ICharacterSheet = {
               },
               {
                 text: sgt("duration"),
-                value: `${datamine.constellation4.duration}s`,
+                value: datamine.constellation4.duration,
+                unit: "s",
               },
             ],
           },
@@ -442,7 +431,8 @@ const sheet: ICharacterSheet = {
               },
               {
                 text: sgt("duration"),
-                value: `${datamine.passive1.duration}s`,
+                value: datamine.passive1.duration,
+                unit: "s",
               },
             ],
           },
@@ -453,21 +443,10 @@ const sheet: ICharacterSheet = {
         teamBuff: true,
         fields: [
           {
-            node: infoMut(dmgFormulas.passive2.a2Buff, {
-              key: `char_${key}:passive2.a2Buff`,
-            }),
+            node: a4Buff,
           },
         ],
       }),
-      {
-        fields: [
-          {
-            node: infoMut(dmgFormulas.passive1.bountifulCore, {
-              key: `char_${key}:passive1.bountifulCore`,
-            }),
-          },
-        ],
-      },
     ]),
     passive2: ct.talentTemplate("passive2"),
     passive3: ct.talentTemplate("passive3"),
@@ -487,7 +466,8 @@ const sheet: ICharacterSheet = {
               },
               {
                 text: sgt("duration"),
-                value: `${datamine.constellation2.duration}s`,
+                value: datamine.constellation2.duration,
+                unit: "s",
               },
             ],
           },
@@ -507,7 +487,8 @@ const sheet: ICharacterSheet = {
               },
               {
                 text: sgt("duration"),
-                value: `${datamine.constellation2.duration}s`,
+                value: datamine.constellation2.duration,
+                unit: "s",
               },
             ],
           },
