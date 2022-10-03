@@ -2,7 +2,7 @@
   "name": "Nahida",
   "title": " ",
   "description": " ",
-  "constellationName": "Domina Sophia",
+  "constellationName": "Sapientia Oromasdis",
   "auto": {
     "name": "Form",
     "fields": {
@@ -44,13 +44,14 @@
       "0": "Sends forth karmic bonds of wood and tree from her side, dealing <dendro>AoE Dendro DMG</dendro> and marking opponents hit with the Seed of Skandha.",
       "1": "When held, this skill will trigger differently.",
       "2": "<strong>Hold</strong>",
-      "3": "Enters Aiming Mode, which will allow you to select a limited number of opponents within a limited area. When Aiming Mode ends, this skill deals <dendro>Dendro DMG</dendro> to these opponents and marks them with the Seed of Skandha.",
-      "4": "Aiming Mode will last up to 5s and can select a maximum of 8 opponents.",
-      "5": "<strong>Seed of Skandha</strong>",
-      "6": "Opponents who have been marked by the Seed of Skandha will be linked to one another up till a certain distance.",
-      "7": "After you trigger Elemental Reactions on opponents who are thusly linked together and when they take DMG from Dendro Cores (including Burgeon and Hyperbloom DMG), Nahida will unleash Tri-Karma Purification on this opponent and all connected opponents, dealing <dendro>Dendro DMG</dendro> based on her ATK and Elemental Mastery.",
-      "8": "You can trigger at most 1 Tri-Karma Purification within a short period of time.",
-      "9": "<i>Lo, the god of grass and trees shines her ultimate truth into the void, illuminating the origin and destruction of the three karmas.</i>"
+      "3": "Enters Aiming Mode, which will allow you to select a limited number of opponents within a limited area. During this time, Nahida's resistance to interruption will be increased.",
+      "4": "When released, this skill deals <dendro>Dendro DMG</dendro> to these opponents and marks them with the Seed of Skandha.",
+      "5": "Aiming Mode will last up to 5s and can select a maximum of 8 opponents.",
+      "6": "<strong>Seed of Skandha</strong>",
+      "7": "Opponents who have been marked by the Seed of Skandha will be linked to one another up till a certain distance.",
+      "8": "After you trigger Elemental Reactions on opponents who are affected by the Seeds of Skandha and when they take DMG from Dendro Cores (including Burgeon and Hyperbloom DMG), Nahida will unleash Tri-Karma Purification on the opponents and all connected opponents, dealing <dendro>Dendro DMG</dendro> based on her ATK and Elemental Mastery.",
+      "9": "You can trigger at most 1 Tri-Karma Purification within a short period of time.",
+      "10": "<i>Lo, the god of grass and trees shines her ultimate truth into the void, illuminating the origin and destruction of the three karmas.</i>"
     },
     "skillParams": {
       "0": "Press DMG",
@@ -134,7 +135,7 @@
   "constellation2": {
     "name": "The Root of All Fullness",
     "description": {
-      "0": "Opponents that are marked by Nahida's own <strong>Seed of Skandha</strong> will be affected by the following effects:",
+      "0": "Opponents that are marked by <strong>Seeds of Skandha</strong> applied by Nahida herself will be affected by the following effects",
       "1": [
         "Burning, Bloom, Hyperbloom, Burgeon Reaction DMG can score CRIT Hits. CRIT Rate and CRIT DMG are fixed at 20% and 100% respectively.",
         "Within 8s of being affected by Quicken, Aggravate, Spread, DEF is decreased by 30%."
@@ -164,7 +165,7 @@
   "constellation6": {
     "name": "The Fruit of Reason's Culmination",
     "description": {
-      "0": "When Nahida hits an opponent linked by <strong>All Schemes to Know</strong>'s Seeds of Skandha with Normal or Charged Attacks after unleashing <strong>Illusory Heart</strong>, she will use Karmic Oblivion on this opponent and all connected opponents, dealing <dendro>Dendro DMG</dendro> based on 200% of Nahida's ATK and 400% of her Elemental Mastery.",
+      "0": "When Nahida hits an opponent affected by <strong>All Schemes to Know</strong>'s Seeds of Skandha with Normal or Charged Attacks after unleashing <strong>Illusory Heart</strong>, she will use Karmic Oblivion on this opponent and all connected opponents, dealing <dendro>Dendro DMG</dendro> based on 200% of Nahida's ATK and 400% of her Elemental Mastery.",
       "1": "DMG dealt by Karmic Oblivion is considered Elemental Skill DMG and can be triggered once every 0.2s.",
       "2": "This effect can last up to 10s and will be removed after Nahida has unleashed 6 instances of Karmic Oblivion."
     }

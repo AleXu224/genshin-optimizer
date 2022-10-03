@@ -41,7 +41,7 @@
   "skill": {
     "name": "Nights of Formal Focus",
     "description": {
-      "0": "Puts forth a shield known as the Curtain of Slumber, dealing <cryo>AoE Cryo DMG</cryo>. The Curtain of Slumber's DMG Absorption is based on Layla's Max HP and absorbs <cryo>Cryo DMG</cryo> with 250% effectiveness.",
+      "0": "Puts forth a shield known as the Curtain of Slumber, dealing <cryo>AoE Cryo DMG</cryo>. The Curtain of Slumber's DMG Absorption is based on Layla's Max HP and absorbs <cryo>Cryo DMG</cryo> with 250% effectiveness. When the shield is deployed, Layla will have <cryo>Cryo</cryo> applied to her briefly.",
       "1": "<strong>Night Stars and Shooting Stars</strong>",
       "2": "While the Curtain of Slumber is active, it will create 1 Night Star that will be attached to it every 1.5s.",
       "3": "When a character protected by this shield uses an Elemental Skill, 2 Night Stars will be created. Night Stars can be created once every 0.3s in this way. A maximum of 4 Night Stars can be accumulated at any one time.",
@@ -99,7 +99,7 @@
   "passive1": {
     "name": "Like Nascent Light",
     "description": {
-      "0": "While the <strong>Curtain of Slumber</strong> is active, the Deep Sleep effect will activate each time the Curtain gains a Night Star:",
+      "0": "While the <strong>Curtain of Slumber</strong> is active, the Deep Sleep effect will activate each time the Curtain gains 1 Night Star:",
       "1": [
         "The Shield Strength of a character under the effect of the Curtain of Slumber increases by 6%.",
         "This effect can have a maximum of 4 stacks and persists until the Curtain of Slumber disappears."
@@ -113,7 +113,7 @@
     }
   },
   "passive3": {
-    "name": "Talent for Daily Life",
+    "name": "Shadowy Dream-Signs",
     "description": {
       "0": "When Layla crafts Character Talent Materials, she has a 10% chance to receive double the product."
     }
@@ -142,8 +142,8 @@
   "constellation4": {
     "name": "Starry Illumination",
     "description": {
-      "0": "When <strong>Nights of Formal Focus</strong> starts to fire off Shooting Stars, it will grant all nearby party members the Open Mind effect, causing their Normal and Charged Attack DMG to increase based on 5% of Layla's Max HP.",
-      "1": "Open Mind can last up to 3s and will be removed 0.1s after dealing Normal or Charged Attack DMG."
+      "0": "When <strong>Nights of Formal Focus</strong> starts to fire off Shooting Stars, it will grant all nearby party members the Dawn Star effect, causing their Normal and Charged Attack DMG to increase based on 5% of Layla's Max HP.",
+      "1": "Dawn Star can last up to 3s and will be removed 0.05s after dealing Normal or Charged Attack DMG."
     }
   },
   "constellation5": {
