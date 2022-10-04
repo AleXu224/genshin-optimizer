@@ -2,7 +2,7 @@ import { crystallizeLevelMultipliers, transformativeReactionLevelMultipliers, tr
 import { absorbableEle } from "../Types/consts";
 import { objectKeyMap } from "../Util/Util";
 import { infusionNode, input } from "./index";
-import { constant, data, equal, frac, infoMut, one, percent, prod, subscript, sum } from "./utils";
+import { constant, data, equal, frac, infoMut, lookup, one, percent, prod, subscript, sum } from "./utils";
 
 const crystallizeMulti1 = subscript(input.lvl, crystallizeLevelMultipliers, { key: "crystallize_level_multi" })
 const crystallizeElemas = prod(40 / 9, frac(input.total.eleMas, 1400))
@@ -22,6 +22,11 @@ const trans = {
         infoMut(sum(one, transMulti2), { pivot: true, key: "base_transformative_multi" }),
         input.total[`${reaction}_dmg_`]
       ),
+      lookup(input.hit.hitMode, {
+        hit: one,
+        critHit: sum(one, input.total[`${reaction}_critDMG_`]),
+        avgHit: sum(one, prod(input.total[`${reaction}_critRate_`], input.total[`${reaction}_critDMG_`])),
+      }, NaN),
       input.enemy[`${resist}_resMulti`]
     ), { key: `${reaction}_hit` })
   }),
