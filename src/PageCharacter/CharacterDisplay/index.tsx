@@ -1,5 +1,5 @@
 import { BarChart, Calculate, FactCheck, Groups, Person, Science, TrendingUp } from '@mui/icons-material';
-import { Box, Button, CardContent, Skeleton, Tab, Tabs } from '@mui/material';
+import { Box, Button, CardContent, Skeleton, Tab, Tabs, Typography } from '@mui/material';
 import { Suspense, useCallback, useContext, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link as RouterLink, Navigate, Route, Routes, useMatch, useNavigate, useParams } from 'react-router-dom';
@@ -103,6 +103,9 @@ function CharacterDisplayCard({ characterKey, onClose }: CharacterDisplayCardPro
           <HitModeToggle size="small" />
           <InfusionAuraDropdown />
           <ReactionToggle size="small" />
+        </Box>
+        <Box>
+          <Typography variant="h6">Do note, this is not the official optimizer. This is a fork created by a 3rd party with unverified formulas. Results are not guaranteed to be correct. The official optimizer does not host any data of characters/artifacts/weapons that are not released in the game. User discretion is advised.</Typography>
         </Box>
         <CardLight>
           <TabNav tab={tab} />
