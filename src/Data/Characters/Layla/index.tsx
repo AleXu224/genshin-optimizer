@@ -98,7 +98,7 @@ const c1Bonus = greaterEq(
   input.constellation,
   1,
   constant(datamine.constellation1.shieldStr),
-  { key: "shield_" }
+  { key: `char_${key}:c1ShieldBonus_` }
 );
 
 const [c4CondPath, c4Cond] = cond(key, "c4Cond");
@@ -143,24 +143,23 @@ const a4Bonus = greaterEq(
   { key: `char_${key}:a4Cond` }
 );
 
-const skillShield = shieldNode(
-  "hp",
-  subscript(input.total.skillIndex, datamine.skill.shield),
-  subscript(input.total.skillIndex, datamine.skill.shieldBonus),
-  {
-    premod: {
-      shield_: sum(a1ShieldStr_, c1Bonus),
-    },
-  }
+const skillShield = prod(
+  sum(percent(1), c1Bonus),
+  shieldNode(
+    "hp",
+    subscript(input.total.skillIndex, datamine.skill.shield),
+    subscript(input.total.skillIndex, datamine.skill.shieldBonus),
+    {
+      premod: {
+        shield_: a1ShieldStr_,
+      },
+    }
+  )
 );
 
-const c1Shield = shieldNode(
-  "hp",
-  prod(
-    subscript(input.total.skillIndex, datamine.skill.shield),
-    percent(datamine.constellation1.coopShield)
-  ),
-  subscript(input.total.skillIndex, datamine.skill.shieldBonus)
+const c1Shield = prod(
+  percent(datamine.constellation1.coopShield),
+  skillShield,
 );
 
 const dmgFormulas = {
@@ -260,13 +259,13 @@ const sheet: ICharacterSheet = {
             node: infoMut(dmgFormulas.charged.dmg1, {
               key: `char_${key}_gen:auto.skillParams.3`,
             }),
-            textSuffix: "(1)"
+            textSuffix: "(1)",
           },
           {
             node: infoMut(dmgFormulas.charged.dmg2, {
               key: `char_${key}_gen:auto.skillParams.3`,
             }),
-            textSuffix: "(2)"
+            textSuffix: "(2)",
           },
           {
             text: tr("auto.skillParams.4"),
