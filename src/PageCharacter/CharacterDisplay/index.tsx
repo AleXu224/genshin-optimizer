@@ -104,9 +104,6 @@ function CharacterDisplayCard({ characterKey, onClose }: CharacterDisplayCardPro
           <InfusionAuraDropdown />
           <ReactionToggle size="small" />
         </Box>
-        <Box>
-          <Typography variant="h6">Do note, this is not the official optimizer. This is a fork created by a 3rd party with unverified formulas. Results are not guaranteed to be correct. The official optimizer does not host any data of characters/artifacts/weapons that are not released in the game. User discretion is advised.</Typography>
-        </Box>
         <CardLight>
           <TabNav tab={tab} />
         </CardLight>

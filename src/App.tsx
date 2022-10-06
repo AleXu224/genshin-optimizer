@@ -20,7 +20,6 @@ const PageTools = lazy(() => import('./PageTools'))
 const PageSettings = lazy(() => import('./PageSettings'))
 const PageWeapon = lazy(() => import('./PageWeapon'))
 const PageDocumentation = lazy(() => import('./PageDocumentation'))
-const PageScanner = lazy(() => import('./PageScanner'))
 const PageCharacter = lazy(() => import('./PageCharacter'))
 const CharacterDisplay = lazy(() => import('./PageCharacter/CharacterDisplay'))
 
@@ -97,7 +96,6 @@ function Content() {
           <Route path="/tools" element={<PageTools />} />
           <Route path="/setting" element={<PageSettings />} />
           <Route path="/doc/*" element={<PageDocumentation />} />
-          <Route path="/scanner" element={<PageScanner />} />
         </Routes>
       </Suspense>
     </Container>

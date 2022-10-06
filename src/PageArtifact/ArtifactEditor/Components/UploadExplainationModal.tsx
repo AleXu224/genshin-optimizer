@@ -27,9 +27,9 @@ export default function UploadExplainationModal({ modalShow, hide }: { modalShow
             <Box component="img" alt="snippet of the screen to take" src={Snippet} width="100%" height="auto" />
           </Grid>
           <Grid item xs={12} md={8}>
-            <Typography gutterBottom>Using screenshots can dramatically decrease the amount of time you manually input in stats on the Genshin Optimizer.</Typography>
+            <Typography gutterBottom>Using screenshots can dramatically decrease the amount of time you manually input in stats on the Squishy.</Typography>
             <Typography variant="h5">Where to snip the screenshot.</Typography>
-            <Typography gutterBottom>In game, Open your bag, and navigate to the artifacts tab. Select the artifact you want to scan with Genshin Optimizer. <b>Only artifact from this screen can be scanned.</b></Typography>
+            <Typography gutterBottom>In game, Open your bag, and navigate to the artifacts tab. Select the artifact you want to scan with Squishy. <b>Only artifact from this screen can be scanned.</b></Typography>
             <Typography variant="h6">Single artifact</Typography>
             <Typography gutterBottom>To take a screenshot, in Windows, the shortcut is <strong>Shift + WindowsKey + S</strong>. Once you selected the region, the image is automatically included in your clipboard.</Typography>
             <Typography variant="h6">Multiple artifacts</Typography>
@@ -38,7 +38,7 @@ export default function UploadExplainationModal({ modalShow, hide }: { modalShow
             <Typography>As shown in the Image, starting from the top with the artifact name, all the way to the set name(the text in green). </Typography>
           </Grid>
           <Grid item xs={12} md={7}>
-            <Typography variant="h5">Adding Screenshot to Genshin Optimizer</Typography>
+            <Typography variant="h5">Adding Screenshot to Squishy</Typography>
             <Typography>At this point, you should have the artifact snippet either saved to your harddrive, or in your clipboard.</Typography>
             <Typography gutterBottom>You can click on the box next to "Browse" to browse the files in your harddrive for multiple screenshots.</Typography>
             <Typography>For single screenshots from the snippets, just press <strong>Ctrl + V</strong> to paste from your clipboard.</Typography>

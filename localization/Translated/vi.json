@@ -74,7 +74,7 @@
         "info": {
             "title": "Hướng dẫn Chỉnh sửa/Quản lý Thánh Di Vật",
             "section1": "<0>Rolls của chỉ số phụ</0><1><1>Số rolls</1> của chỉ số phụ được hiển thị phía bên trái của chỉ số phụ đó. Càng nhiều rolls thì càng màu mè:<3></3>.</1><2>Hiệu suất chỉ số phụ</2><3>Hiệu suất của một chỉ số phụ là tỉ lệ phần trăm của giá trị hiện tại với giá trị tiềm năng cao nhất của thánh di vật 5 <1></1>. Từ trong hình, giá trị roll cao nhất của Sát thương bạo kích là 7.8%. Hiệu suất: <3>5.8/7.8 = 69.2%.</3></3><4>Hiệu suất hiên tại đối với Hiệu suất tiềm năng cao nhất</4><5>Khi một thánh di vật 5<1></1> có tất cả 9(4+5) rolls, và tất cả các rolls đều có giá trị cao nhất, thì nó là thánh di vật có hiệu suất 100%. Tuy nhiên, đa số là chuyện đó khó mà xảy ra. <3>Hiệu suất hiện tại</3> của một thánh di vật là tỉ lệ phần trăm hiệu suất đối với thánh di vật có 100% hiệu suất. <5>Hiệu suất tối đa</5> là hiệu suất cao nhất mà thánh di vật có thể đạt được, nếu tất cả rolls còn lại đạt giá trị tối đa.</5><6>Khóa thánh di vật</6><7>Bằng việc khóa thánh di vật <1></1> sẽ làm cho thánh di vật đó không được chọn khi tạo build. Thánh di vật đã được trang bị sẽ mặc định bị khóa.</7>",
-            "section2": "<0>Trình chỉnh sửa thánh di vật</0><1>Trình chỉnh sửa có đầy đủ chức năng, có thể chấp nhận thánh di vật từ 3<1></1> tới 5<3></3>. Khi một chỉ số phụ được nhập, nó có thể tính toán chính xác giá trị của rolls và hiệu suất. Nó cũng có thể đưa ra con số chính xác về mỗi roll của thánh di vật đó, cùng với các số liệu xác thực khác.</1><2>Quét hình ảnh</2><3>Bạn lười phải nhập chỉ số bằng tay? Bạn có thể quét thánh di vật bằng hình ảnh! Ở trang Trình chỉnh sửa thánh di vật, bấm vào <1>Cách chụp hình chính xác!</1> để có thể biết thêm chi tiết.</3><4>Phát hiện thánh di vật bị trùng lặp/ đã được nâng cấp</4><5>Bạn có biết GO có thể phát hiện ra thánh di vật bị <1>trùng lặp</1> cái mà đã có trong hệ thống? Nó cũng có thể phát hiện nếu thánh di vật trong trình chỉnh sửa là phiên bản <3>nâng cấp</3> của thánh di vật có sẵn. Một khi phát hiện trùng lặp hoặc đã nâng cấp bạn có thể xem trước để so sánh hai thánh di vật này(Xem hình).</5>",
+            "section2": "<0>Trình chỉnh sửa thánh di vật</0><1>Trình chỉnh sửa có đầy đủ chức năng, có thể chấp nhận thánh di vật từ 3<1></1> tới 5<3></3>. Khi một chỉ số phụ được nhập, nó có thể tính toán chính xác giá trị của rolls và hiệu suất. Nó cũng có thể đưa ra con số chính xác về mỗi roll của thánh di vật đó, cùng với các số liệu xác thực khác.</1><2>Quét hình ảnh</2><3>Bạn lười phải nhập chỉ số bằng tay? Bạn có thể quét thánh di vật bằng hình ảnh! Ở trang Trình chỉnh sửa thánh di vật, bấm vào <1>Cách chụp hình chính xác!</1> để có thể biết thêm chi tiết.</3><4>Phát hiện thánh di vật bị trùng lặp/ đã được nâng cấp</4><5>Bạn có biết SQ có thể phát hiện ra thánh di vật bị <1>trùng lặp</1> cái mà đã có trong hệ thống? Nó cũng có thể phát hiện nếu thánh di vật trong trình chỉnh sửa là phiên bản <3>nâng cấp</3> của thánh di vật có sẵn. Một khi phát hiện trùng lặp hoặc đã nâng cấp bạn có thể xem trước để so sánh hai thánh di vật này(Xem hình).</5>",
             "section3": "<0>Túi thánh di vật</0><1>Tất cả những thánh di vật đã thêm vào của bạn được hiển thị ở đây. Bộ lọc ở đây cho phép bạn tìm kiếm thánh di vật dễ hơn. </1><2>Ví dụ: Tìm Thánh Di vật làm nguyên liệu cường hoá</2><3>Bằng bộ lọc bạn có thể tìm kiếm thánh di vật làm nguyên liệu cường hoá nhanh hơn.</3><4>Ở ví dụ này, bộ được thiết lập như này: </4><5><0>Thánh Di Vật không khóa trong túi.</0><1>Với chỉ số phụ: Tấn công và phòng ngự.</1><2>Xếp theo thứ tự hiệu suất tối đa tăng dần</2></5><6>Một khi thánh di vật đã được đem làm nguyên liệu cường hoá, bấm vào <1>Xóa thánh di vật</1> để xóa thánh di vật vừa được lọc.</6>"
         },
         "exclusionDisplay": "Loại trừ: {{value}}",
@@ -123,7 +123,7 @@
             "hint": "Tải lên tệp JSON ở đây...",
             "hintPaste": "...hoặc dán thông tin của bạn bên dưới.",
             "goUpload": {
-                "title": "Định dạng <strong>Genshin Optimizer</strong>",
+                "title": "Định dạng <strong>Squishy</strong>",
                 "migrate": "Cơ sở dữ liệu sẽ được chuyển sang phiên bản mới hơn. Vui lòng xem xét tải xuống lại cơ sở dữ liệu sau khi nhập.",
                 "deleteDatabasePrompt": "Bạn có chắc chắn muốn thay thế cơ sở dữ liệu của bạn không? Tất cả các nhân vật và thánh di vật sẽ bị xóa."
             },
@@ -131,7 +131,7 @@
                 "jsonParse": "Không thể phân tích tập tin JSON.",
                 "unknown": "Định dạng tập tin không xác định.",
                 "monaInvalid": "Định dạng file Mona-Uranai không hợp lệ",
-                "goInvalid": "Định dạng file backup GO không hợp lệ"
+                "goInvalid": "Định dạng file backup SQ không hợp lệ"
             },
             "dbSource": "Nguồn dữ liệu:",
             "goodUpload": {
@@ -162,7 +162,7 @@
         }
     },
     "ui": {
-        "pageTitle": "Genshin Optimizer",
+        "pageTitle": "Squishy",
         "tabs": {
             "artifacts": "Thánh di vật",
             "characters": "Nhân vật",
@@ -186,7 +186,7 @@
         "ascending": "Tăng dần",
         "descending": "Giảm dần",
         "loading": "Đang tải...",
-        "rightsDisclaimer": "Genshin Optimizer không được liên kết hoặc xác nhận bởi miHoyo",
+        "rightsDisclaimer": "Squishy không được liên kết hoặc xác nhận bởi miHoyo",
         "appVersion": "$t(pageTitle) Phiên bản: {{version}}",
         "underConstruction": "Đang hoàn thiện",
         "error": "Lỗi",
@@ -375,16 +375,12 @@
         "c6": "Lúc đòn tấn công thường và trọng kích trị liệu cho nhân vật có HP từ 80% trở lên"
     },
     "page_home": {
-        "intro": "<0>Giới thiệu về Genshin Optimizer</0><1>Genshin Optimizer (GO) là một trang web mã nguồn mở do người hâm mộ tạo ra cho trò chơi gacha hành động nhập vai <1><strong>Genshin Impact</strong></1>. Nó chủ yếu nhằm mục đích giúp đỡ người chơi về khía cạnh phức tạp của trò chơi: Tối ưu hoá Thánh Di Vật. Vì Thánh Di Vật là các yếu tố dựa trên RNG (Random Number Generator) góp phần trực tiếp vào mức độ hiệu quả của các nhân vật của bạn trong trò chơi, GO sẽ cố gắng tìm các Thánh Di Vật tốt nhất cho các nhân vật dựa trên Túi chứa Thánh Di Vật hiện tại của bạn.</1><2>GO có thể theo dõi các Thánh Di Vật và cho phép dễ dàng hơn trong việc lọc/so sánh các Thánh Di Vật, nó đóng vai trò như một công cụ giúp người dùng tìm Thánh Di Vật tốt trong túi để tăng cấp và Thánh Di Vật xấu để sử dụng làm nguyên liệu cường hoá.</2><3>Vì GO có thể sao chép các chỉ số chính xác của bất kỳ nhân vật nào, cùng với việc tính toán tất cả các con số sát thương với độ chính xác lên đến 1%, GO cũng có thể tính sát thương và là công cụ tính toán lý thuyết.</3>",
+        "intro": "<0>Giới thiệu về Squishy</0><1>Squishy (GO) là một trang web mã nguồn mở do người hâm mộ tạo ra cho trò chơi gacha hành động nhập vai <1><strong>Genshin Impact</strong></1>. Nó chủ yếu nhằm mục đích giúp đỡ người chơi về khía cạnh phức tạp của trò chơi: Tối ưu hoá Thánh Di Vật. Vì Thánh Di Vật là các yếu tố dựa trên RNG (Random Number Generator) góp phần trực tiếp vào mức độ hiệu quả của các nhân vật của bạn trong trò chơi, SQ sẽ cố gắng tìm các Thánh Di Vật tốt nhất cho các nhân vật dựa trên Túi chứa Thánh Di Vật hiện tại của bạn.</1><2>GO có thể theo dõi các Thánh Di Vật và cho phép dễ dàng hơn trong việc lọc/so sánh các Thánh Di Vật, nó đóng vai trò như một công cụ giúp người dùng tìm Thánh Di Vật tốt trong túi để tăng cấp và Thánh Di Vật xấu để sử dụng làm nguyên liệu cường hoá.</2><3>Vì SQ có thể sao chép các chỉ số chính xác của bất kỳ nhân vật nào, cùng với việc tính toán tất cả các con số sát thương với độ chính xác lên đến 1%, SQ cũng có thể tính sát thương và là công cụ tính toán lý thuyết.</3>",
         "quickLinksCard": {
             "title": "Danh sách liên kết",
             "buttons": {
                 "tyGuide": {
                     "tooltip": "Cách dùng công cụ tối ưu hóa Genshin"
-                },
-                "scanners": {
-                    "title": "Tự động nhập dữ liệu",
-                    "tooltip": "Phần mềm từ phía thứ 3 cho phép thực hiện lấy dữ liệu tdv tự động"
                 },
                 "devDiscord": {
                     "title": "Discord của nhà phát triển Genshin ",

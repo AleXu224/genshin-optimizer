@@ -3,7 +3,7 @@ import type { ICharacter } from "../Types/character"
 import type { IWeapon } from "../Types/weapon"
 import { BuildSetting } from "./DataManagers/BuildsettingData"
 
-export const GOSource = "Genshin Optimizer" as const
+export const GOSource = "Squishy" as const
 
 function newCounter<T>(): ImportResultCounter<T> {
   return { import: 0, invalid: [], new: [], update: [], unchanged: [], upgraded: [], remove: [], notInImport: 0, beforeMerge: 0 }

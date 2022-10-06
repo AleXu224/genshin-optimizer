@@ -74,8 +74,8 @@
         "info": {
             "title": "Panduan Edit/Manajemen Artefak",
             "section1": "<0>Substat Roll</0><1> <1>Jumlah roll</1> yang dimiliki substat yang terletak di sebelah kiri substat. Semakin tinggi jumlahnya, substatnya akan semakin berwarna:<3></3>.</1><2>Substat Efisiensi</2><3>Efisiensi dari substat merupakan persentasi dari jumlah saat ini dari potensi jumlah 5<1></1> tertinggi. Dari gambar tersebut, jumlah roll maksimum dari CRIT DMG adalah 7.8%. Dalam efisiensinya: <3>5.8/7.8 = 69.2%.</3></3><4>Efisiensi Substat Saat Ini vs. Efisiensi Substat Maksimum</4><5>Ketika 5<1></1> memiliki total 9(4+5) roll, dengan tiap roll-nya memiliki jumlah tertinggi, itu dinamakan efisiensi 100% artefak. Namun, kebanyakan dari artefak yang ada tidak seberuntung ini. <3>Efisiensi Substat saat ini</3> dari sebuah artefak merupakan persentasi dari efisiensi 100% tersebut. <5>Efisiensi Substat Maksimum</5> merupakan jumlah maksimum dari artefak yang bisa dicapai, jika sisa roll artefak dari upgrade merupakan jumlah tertinggi yang bisa dicapai.</5><6>Mengunci Artefak</6><7>Jika artefak tertentu dikunci <1></1>, maka artefak tersebut tidak akan dipilih oleh build generator untuk optimisasi. Artefak yang dikenakan karakter terkunci secara default.</7>",
-            "section2": "<0>Editor Artefak</0><1>Editor Artefak dengan fitur lengkap yang bisa menerima semua artefak 3<1></1> hingga 5<3></3>. Ketika substat diinput, editor ini bisa menghitung jumlah roll dan efisiensi yang sesuai. Editor ini juga bisa memastikan bahwa jumlah roll yang didapat sesuai dengan levelnya bersama dengan metrik validasi lainnya.</1><2>Memindai Screenshot</2><3>Tidak suka menginput secara manual? Kamu bisa memindai artefakmu dengan screenshot! Dalam Artefak Editor, klik tombol <1>Show Me How!</1> untuk mempelajarinya lebih lanjut.</3><4>Pemindai Artefak Otomatis</4><5>Kalau kamu memainkan Genshin di PC, kamu bisa mengunduh alat yang bisa memindai semua artefakmu secara otomatis, lalu kamu bisa mengimpor data tersebut ke dalam <1></1> Database. <3>Tekan di sini</3> untuk melihat daftar pemindai yang kompatibel dengan GO.</5><6>Deteksi Artefak Duplikat/Upgrade</6><7>Tahukah kamu kalau GO bisa mendeteksi jika kamu menambah artefak <1>duplikat</1> yang sudah ada dalam sistem? Editor ini juga bisa mendeteksi apakah artefak yang ditambahkan merupakan <3>upgrade</3> dari artefak yang sudah ada. Ketika duplikasi/upgrade terdeteksi, pratinjau akan muncul agar kamu bisa membandingkan dua artefak tersebut(Lihat Gambar).</7>",
-            "section3": "<0>Tas Artefak</0><1>Semua artefakmu yang telah kamu tambahkan ke GO ditampilkan di sini. Filter di sini memungkinkan kamu untuk lebih menyempurnakan tampilan artefakmu. </1><2>Contoh: Menentukan Artefak Tumbal</2><3>Dengan memanfaatkan filter artefak, dan perhitungan efisiensi artefak, kamu dapat menentukan artefak untuk dijadikan tumbal dengan cepat.</3><4>Sebagai contoh, filter diatur sebagai berikut: </4><5><0><0>Batasi level hingga 0-8.</0><1>Pastikan artefak dalam tas tidak terkunci.</1><2>Hilangkan kontribusi flat HP, flat DEF, dan Energy Recharge untuk perhitungan efisiensi.</2><3>Urutkan dengan menggunakan urutan meningkat untuk Eff. Substat Maksimum.</3></0></5><6>Ini akan memfilter Tas artefak dari artefak efisiensi terendah, untuk substat yang diinginkan.</6>"
+            "section2": "<0>Editor Artefak</0><1>Editor Artefak dengan fitur lengkap yang bisa menerima semua artefak 3<1></1> hingga 5<3></3>. Ketika substat diinput, editor ini bisa menghitung jumlah roll dan efisiensi yang sesuai. Editor ini juga bisa memastikan bahwa jumlah roll yang didapat sesuai dengan levelnya bersama dengan metrik validasi lainnya.</1><2>Memindai Screenshot</2><3>Tidak suka menginput secara manual? Kamu bisa memindai artefakmu dengan screenshot! Dalam Artefak Editor, klik tombol <1>Show Me How!</1> untuk mempelajarinya lebih lanjut.</3><4>Pemindai Artefak Otomatis</4><5>Kalau kamu memainkan Genshin di PC, kamu bisa mengunduh alat yang bisa memindai semua artefakmu secara otomatis, lalu kamu bisa mengimpor data tersebut ke dalam <1></1> Database. <3>Tekan di sini</3> untuk melihat daftar pemindai yang kompatibel dengan GO.</5><6>Deteksi Artefak Duplikat/Upgrade</6><7>Tahukah kamu kalau SQ bisa mendeteksi jika kamu menambah artefak <1>duplikat</1> yang sudah ada dalam sistem? Editor ini juga bisa mendeteksi apakah artefak yang ditambahkan merupakan <3>upgrade</3> dari artefak yang sudah ada. Ketika duplikasi/upgrade terdeteksi, pratinjau akan muncul agar kamu bisa membandingkan dua artefak tersebut(Lihat Gambar).</7>",
+            "section3": "<0>Tas Artefak</0><1>Semua artefakmu yang telah kamu tambahkan ke SQ ditampilkan di sini. Filter di sini memungkinkan kamu untuk lebih menyempurnakan tampilan artefakmu. </1><2>Contoh: Menentukan Artefak Tumbal</2><3>Dengan memanfaatkan filter artefak, dan perhitungan efisiensi artefak, kamu dapat menentukan artefak untuk dijadikan tumbal dengan cepat.</3><4>Sebagai contoh, filter diatur sebagai berikut: </4><5><0><0>Batasi level hingga 0-8.</0><1>Pastikan artefak dalam tas tidak terkunci.</1><2>Hilangkan kontribusi flat HP, flat DEF, dan Energy Recharge untuk perhitungan efisiensi.</2><3>Urutkan dengan menggunakan urutan meningkat untuk Eff. Substat Maksimum.</3></0></5><6>Ini akan memfilter Tas artefak dari artefak efisiensi terendah, untuk substat yang diinginkan.</6>"
         },
         "exclusionDisplay": "Eksklusif: {{value}}",
         "exclusion": {
@@ -123,7 +123,7 @@
             "hint": "Unggah file JSON di sini...",
             "hintPaste": "...atau tempel datamu di bawah.",
             "goUpload": {
-                "title": "<strong>Genshin Optimizer</strong> format",
+                "title": "<strong>Squishy</strong> format",
                 "migrate": "Database akan dipindahkan ke versi terbaru. Disarankan untuk mengunduh ulang database setelah mengimpor.",
                 "deleteDatabasePrompt": "Apakah kamu yakin ingin mengganti database-mu? Semua karakter dan artefak yang ada akan dihapus."
             },
@@ -131,7 +131,7 @@
                 "jsonParse": "Tidak dapat mengurai file JSON.",
                 "unknown": "Format file tidak dikenal.",
                 "monaInvalid": "Format file Mona-Uranai tidak valid",
-                "goInvalid": "Format file cadangan GO tidak valid."
+                "goInvalid": "Format file cadangan SQ tidak valid."
             },
             "dbSource": "Sumber data:",
             "goodUpload": {
@@ -151,7 +151,7 @@
         }
     },
     "ui": {
-        "pageTitle": "Genshin Optimizer",
+        "pageTitle": "Squishy",
         "tabs": {
             "artifacts": "Artefak",
             "characters": "Karakter",
@@ -174,7 +174,7 @@
         "ascending": "Meningkat",
         "descending": "Menurun",
         "loading": "Memuat...",
-        "rightsDisclaimer": "Genshin Optimizer tidak berafiliasi dengan miHoYo.",
+        "rightsDisclaimer": "Squishy tidak berafiliasi dengan miHoYo.",
         "appVersion": "$t(halamanJudul) Versi: <1>{{version}}</1>",
         "underConstruction": "Sedang Dibangun",
         "error": "Error",
@@ -330,10 +330,10 @@
         "c6": "Setelah Normal dan Charged Attack memulihkan karakter dengan HP 80% atau lebih"
     },
     "page_home": {
-        "intro": "<0>Apa itu Genshin Optimizer?</0><1>Genshin Optimizer (GO) merupakan website fan-made open source untuk game gacha RPG <1><strong>Genshin Impact</strong></1>. Alat ini bertujuan untuk mempermudah pemain untuk mengoptimisasi artefak yang ada dalam game tersebut. Dikarenakan artefak mampu menentukan seberapa efektif karaktermu di dalam game, GO akan mencoba mencari artefak yang terbaik dari semua artefak yang kamu miliki untuk karaktermu.</1><2>GO bisa menyimpan informasi artefak yang kamu miliki serta bisa membandingkan dan memfilter artefak agar mempermudah pencarian artefak yang bagus di dalam tas untuk ditingkatkan levelnya atau artefak yang bisa dijadikan tumbal.</2><3>Karena GO sanggup menyalin stat untuk semua karakter, serta sanggup mengkalkulasi semua jumlah damage hingga akurasi 1%, alat ini bisa dijadikan sebagai kalkulator damage dan alat untuk theory crafting.</3>"
+        "intro": "<0>Apa itu Squishy?</0><1>Squishy (GO) merupakan website fan-made open source untuk game gacha RPG <1><strong>Genshin Impact</strong></1>. Alat ini bertujuan untuk mempermudah pemain untuk mengoptimisasi artefak yang ada dalam game tersebut. Dikarenakan artefak mampu menentukan seberapa efektif karaktermu di dalam game, SQ akan mencoba mencari artefak yang terbaik dari semua artefak yang kamu miliki untuk karaktermu.</1><2>GO bisa menyimpan informasi artefak yang kamu miliki serta bisa membandingkan dan memfilter artefak agar mempermudah pencarian artefak yang bagus di dalam tas untuk ditingkatkan levelnya atau artefak yang bisa dijadikan tumbal.</2><3>Karena SQ sanggup menyalin stat untuk semua karakter, serta sanggup mengkalkulasi semua jumlah damage hingga akurasi 1%, alat ini bisa dijadikan sebagai kalkulator damage dan alat untuk theory crafting.</3>"
     },
     "page_scanner": {
-        "intro": "<0>Pemindai Otomatis</0><1>Pemindai otomatis merupakan alat yang bisa memindai data in-game secara otomatis dengan cara memanipulasi pergerakan mouse, mengambil screenshot dalam game, dan memindai informasi dari screenshot tersebut. alat ini memiliki risiko rendah dan dapat membantu pemindaian artefak ke dalam GO secara otomatis. Seperti alat lainnya yang secara tidak langsung berinteraksi dengan game, meskipun alat ini tidak terdeteksi secara virtual,<1> risiko dalam menggunakannya mungkin masih ada.</1> Jadi, kebijaksanaan penggunaan disarankan.</1><2> Aspek yang paling penting dalam menggunakan pemindai dengan GO adalah format outputnya:</2><3><0><0>sejak <1>v5.21.0</1>, GO bisa mengimpor data artefak ke dalam format <3>mona-uranai</3>. </0><1>Sejak <1>v6.0.0</1>, GO bisa mengimpor data ke dalam format <3>Genshin Open Object Description (GOOD)</3>. </1></0></3><4>Berikut merupakan beberapa pemindai yang telah diuji coba dengan GO. </4><5>Untuk mengupload file yang sudah diekspor, pergi ke halaman <1>Database</1> dan unggah filemu ke dalam <strong>\"Database Upload\"</strong>.</5>"
+        "intro": "<0>Pemindai Otomatis</0><1>Pemindai otomatis merupakan alat yang bisa memindai data in-game secara otomatis dengan cara memanipulasi pergerakan mouse, mengambil screenshot dalam game, dan memindai informasi dari screenshot tersebut. alat ini memiliki risiko rendah dan dapat membantu pemindaian artefak ke dalam SQ secara otomatis. Seperti alat lainnya yang secara tidak langsung berinteraksi dengan game, meskipun alat ini tidak terdeteksi secara virtual,<1> risiko dalam menggunakannya mungkin masih ada.</1> Jadi, kebijaksanaan penggunaan disarankan.</1><2> Aspek yang paling penting dalam menggunakan pemindai dengan SQ adalah format outputnya:</2><3><0><0>sejak <1>v5.21.0</1>, SQ bisa mengimpor data artefak ke dalam format <3>mona-uranai</3>. </0><1>Sejak <1>v6.0.0</1>, SQ bisa mengimpor data ke dalam format <3>Genshin Open Object Description (GOOD)</3>. </1></0></3><4>Berikut merupakan beberapa pemindai yang telah diuji coba dengan GO. </4><5>Untuk mengupload file yang sudah diekspor, pergi ke halaman <1>Database</1> dan unggah filemu ke dalam <strong>\"Database Upload\"</strong>.</5>"
     },
     "weapon_EverlastingMoonglow": {
         "name": "DMG Normal Attack meningkat"

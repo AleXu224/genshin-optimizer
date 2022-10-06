@@ -6,5 +6,5 @@ test.skip('Check for Header', async () => {
   await waitFor(() => {
     expect(container.querySelector("#mainContainer")).toBeInTheDocument();
   })
-  expect(getByText(/^Genshin Optimizer$/i)).toBeInTheDocument();
+  expect(getByText(/^Squishy$/i)).toBeInTheDocument();
 });

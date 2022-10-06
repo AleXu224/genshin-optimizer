@@ -44,11 +44,8 @@ export default function ArtifactInfoDisplay() {
         <Typography variant="h5">Scan screenshots</Typography>
         <Typography gutterBottom>Manual input is not your cup of tea? You can scan in your artifacts with screenshots! On the Artifact Editor, click the <SqBadge color="info">Show Me How!</SqBadge> button to learn more.</Typography>
 
-        <Typography variant="h6">Automatic Artifact Scanner</Typography>
-        <Typography gutterBottom>If you are playing Genshin on PC, you can download a tool that automatically scans all your artifacts for you, and you can then import that data in <FontAwesomeIcon icon={faCog} /> Database. <Link component={RouterLink} to="/scanner">Click here</Link> for a list of scanners that are compatible with GO.</Typography>
-
         <Typography variant="h5">Duplicate/Upgrade artifact detection</Typography>
-        <Typography>Did you know GO can detect if you are adding a <b>duplicate</b> artifact that exists in the system? It can also detect if the current artifact in editor is an <b>upgrade</b> of an existing artifact as well. Once a duplicate/upgrade is detected, a preview will allow you to compare the two artifacts in question(See Image).</Typography>
+        <Typography>Did you know SQ can detect if you are adding a <b>duplicate</b> artifact that exists in the system? It can also detect if the current artifact in editor is an <b>upgrade</b> of an existing artifact as well. Once a duplicate/upgrade is detected, a preview will allow you to compare the two artifacts in question(See Image).</Typography>
       </Trans>
     </Grid>
     <Grid item xs={12} lg={6} xl={5}>
@@ -60,7 +57,7 @@ export default function ArtifactInfoDisplay() {
     <Grid item xs={12} lg={5} xl={6}>
       <Trans t={t} i18nKey="info.section3">
         <Typography variant="h5">Artifact Inventory</Typography>
-        <Typography gutterBottom>All your artifacts that you've added to GO is displayed here. The filters here allow you to further refine your view of your artifacts. </Typography>
+        <Typography gutterBottom>All your artifacts that you've added to SQ is displayed here. The filters here allow you to further refine your view of your artifacts. </Typography>
         <Typography variant="h5">Example: Finding Fodder Artifacts</Typography>
         <Typography>By utilizing the artifact filter, and the artifact RV, you can quickly find artifacts to feed as food.</Typography>
         <Typography>In this example, the filters are set thusly: </Typography>

@@ -191,211 +191,210 @@ const defaultTheme = createTheme({
 });
 export const theme = createTheme({
   palette: {
-    mode: 'dark',
+    mode: "dark",
     primary: defaultTheme.palette.augmentColor({
-      color: { main: '#1e78c8' },
-      name: "primary"
+      color: { main: "#3B6472" },
+      name: "primary",
     }),
     secondary: defaultTheme.palette.augmentColor({
-      color: { main: '#6c757d' },
-      name: "secondary"
+      color: { main: "#2B4852" },
+      name: "secondary",
     }),
     success: defaultTheme.palette.augmentColor({
-      color: { main: '#46a046' },
-      name: "success"
+      color: { main: "#46a046" },
+      name: "success",
     }),
     warning: defaultTheme.palette.augmentColor({
       color: { main: `#ffc107` },
-      name: "warning"
+      name: "warning",
     }),
     error: defaultTheme.palette.augmentColor({
       color: { main: `#c83c3c` },
-      name: "error"
+      name: "error",
     }),
     background: {
-      default: '#0C1020',
-      paper: '#0C1020',
+      default: "#0A1215",
+      paper: "#0A1215",
     },
     info: defaultTheme.palette.augmentColor({
-      color: { main: '#17a2b8' },
-      name: "info"
+      color: { main: "#2B4852" },
+      name: "info",
     }),
     text: {
-      primary: 'rgba(255,255,255,0.9)',
-
+      primary: "rgba(255,255,255,0.9)",
     },
     contentDark: defaultTheme.palette.augmentColor({
-      color: { main: "#1b263b" },
-      name: "contentDark"
+      color: { main: "#152429" },
+      name: "contentDark",
     }),
     contentDarker: defaultTheme.palette.augmentColor({
-      color: { main: "#172032" },
-      name: "contentDarker"
+      color: { main: "#101C20" },
+      name: "contentDarker",
     }),
     contentLight: defaultTheme.palette.augmentColor({
-      color: { main: "#2a364d" },
-      name: "contentLight"
+      color: { main: "#1A2D33" },
+      name: "contentLight",
     }),
     roll1: defaultTheme.palette.augmentColor({
       color: { main: "#a3a7a9" },
-      name: "roll1"
+      name: "roll1",
     }),
     roll2: defaultTheme.palette.augmentColor({
-      color: { main: "#6fa376", },
-      name: "roll2"
+      color: { main: "#6fa376" },
+      name: "roll2",
     }),
     roll3: defaultTheme.palette.augmentColor({
-      color: { main: "#8eea83", },
-      name: "roll3"
+      color: { main: "#8eea83" },
+      name: "roll3",
     }),
     roll4: defaultTheme.palette.augmentColor({
-      color: { main: "#31e09d", },
-      name: "roll4"
+      color: { main: "#31e09d" },
+      name: "roll4",
     }),
     roll5: defaultTheme.palette.augmentColor({
-      color: { main: "#27bbe4", },
-      name: "roll5"
+      color: { main: "#27bbe4" },
+      name: "roll5",
     }),
     roll6: defaultTheme.palette.augmentColor({
-      color: { main: "#de79f0", },
-      name: "roll6"
+      color: { main: "#de79f0" },
+      name: "roll6",
     }),
     geo: defaultTheme.palette.augmentColor({
       color: { main: "#f8ba4e", contrastText: "#fff" },
-      name: "geo"
+      name: "geo",
     }),
     dendro: defaultTheme.palette.augmentColor({
       color: { main: "#a5c83b", contrastText: "#fff" },
-      name: "dendro"
+      name: "dendro",
     }),
     pyro: defaultTheme.palette.augmentColor({
-      color: { main: "#bf2818", },
-      name: "pyro"
+      color: { main: "#bf2818" },
+      name: "pyro",
     }),
     hydro: defaultTheme.palette.augmentColor({
-      color: { main: "#2f63d4", },
-      name: "hydro"
+      color: { main: "#2f63d4" },
+      name: "hydro",
     }),
     cryo: defaultTheme.palette.augmentColor({
       color: { main: "#77a2e6", contrastText: "#fff" },
-      name: "cryo"
+      name: "cryo",
     }),
     electro: defaultTheme.palette.augmentColor({
-      color: { main: "#b25dcd", },
-      name: "electro"
+      color: { main: "#b25dcd" },
+      name: "electro",
     }),
     anemo: defaultTheme.palette.augmentColor({
       color: { main: "#61dbbb", contrastText: "#fff" },
-      name: "anemo"
+      name: "anemo",
     }),
     physical: defaultTheme.palette.augmentColor({
-      color: { main: "#aaaaaa", },
-      name: "physical"
+      color: { main: "#aaaaaa" },
+      name: "physical",
     }),
     vaporize: defaultTheme.palette.augmentColor({
-      color: { main: "#ffcb65", },
-      name: "vaporize"
+      color: { main: "#ffcb65" },
+      name: "vaporize",
     }),
     melt: defaultTheme.palette.augmentColor({
-      color: { main: "#ffcb65", },
-      name: "melt"
+      color: { main: "#ffcb65" },
+      name: "melt",
     }),
     spread: defaultTheme.palette.augmentColor({
       color: { main: "#3bc8a7", contrastText: "#fff" },
-      name: "spread"
+      name: "spread",
     }),
     aggravate: defaultTheme.palette.augmentColor({
       color: { main: "#3ba0c8", contrastText: "#fff" },
-      name: "aggravate"
+      name: "aggravate",
     }),
     overloaded: defaultTheme.palette.augmentColor({
-      color: { main: "#ff7e9a", },
-      name: "overloaded"
+      color: { main: "#ff7e9a" },
+      name: "overloaded",
     }),
     superconduct: defaultTheme.palette.augmentColor({
-      color: { main: "#b7b1ff", },
-      name: "superconduct"
+      color: { main: "#b7b1ff" },
+      name: "superconduct",
     }),
     electrocharged: defaultTheme.palette.augmentColor({
-      color: { main: "#e299fd", },
-      name: "electrocharged"
+      color: { main: "#e299fd" },
+      name: "electrocharged",
     }),
     shattered: defaultTheme.palette.augmentColor({
-      color: { main: "#98fffd", },
-      name: "shattered"
+      color: { main: "#98fffd" },
+      name: "shattered",
     }),
     swirl: defaultTheme.palette.augmentColor({
-      color: { main: "#66ffcb", },
-      name: "swirl"
+      color: { main: "#66ffcb" },
+      name: "swirl",
     }),
     burning: defaultTheme.palette.augmentColor({
-      color: { main: "#bf2818", },
-      name: "burning"
+      color: { main: "#bf2818" },
+      name: "burning",
     }),
     crystallize: defaultTheme.palette.augmentColor({
-      color: { main: "#f8ba4e", },
-      name: "crystallize"
+      color: { main: "#f8ba4e" },
+      name: "crystallize",
     }),
     heal: defaultTheme.palette.augmentColor({
-      color: { main: "#c0e86c", },
-      name: "heal"
+      color: { main: "#c0e86c" },
+      name: "heal",
     }),
     bloom: defaultTheme.palette.augmentColor({
       color: { main: "#47c83b", contrastText: "#fff" },
-      name: "bloom"
+      name: "bloom",
     }),
     burgeon: defaultTheme.palette.augmentColor({
       color: { main: "#c8b33b", contrastText: "#fff" },
-      name: "burgeon"
+      name: "burgeon",
     }),
     hyperbloom: defaultTheme.palette.augmentColor({
       color: { main: "#3b8dc8", contrastText: "#fff" },
-      name: "hyperbloom"
+      name: "hyperbloom",
     }),
 
     white: defaultTheme.palette.augmentColor({
-      color: { main: "#FFFFFF", },
-      name: "white"
+      color: { main: "#FFFFFF" },
+      name: "white",
     }),
     red: defaultTheme.palette.augmentColor({
-      color: { main: "#ff0000", },
-      name: "red"
+      color: { main: "#ff0000" },
+      name: "red",
     }),
 
     discord: defaultTheme.palette.augmentColor({
-      color: { main: "#5663F7", },
-      name: "discord"
+      color: { main: "#5663F7" },
+      name: "discord",
     }),
     patreon: defaultTheme.palette.augmentColor({
       color: { main: "#f96854", contrastText: "#ffffff" },
-      name: "patreon"
+      name: "patreon",
     }),
     twitch: defaultTheme.palette.augmentColor({
-      color: { main: "#6441a5", },
-      name: "twitch"
+      color: { main: "#6441a5" },
+      name: "twitch",
     }),
     twitter: defaultTheme.palette.augmentColor({
       color: { main: "#55acee", contrastText: "#ffffff" },
-      name: "twitter"
+      name: "twitter",
     }),
     paypal: defaultTheme.palette.augmentColor({
-      color: { main: "#00457C", },
-      name: "paypal"
+      color: { main: "#00457C" },
+      name: "paypal",
     }),
     keqing: defaultTheme.palette.augmentColor({
-      color: { main: "#584862", },
-      name: "keqing"
+      color: { main: "#584862" },
+      name: "keqing",
     }),
   },
   typography: {
     button: {
-      textTransform: 'none'
-    }
+      textTransform: "none",
+    },
   },
   components: {
     MuiCssBaseline: {
       styleOverrides: {
-        body: defaultTheme.palette.mode === 'dark' ? darkScrollbar() : null,
+        body: defaultTheme.palette.mode === "dark" ? darkScrollbar() : null,
       },
     },
     MuiAppBar: {
@@ -405,18 +404,18 @@ export const theme = createTheme({
     },
     MuiPaper: {
       defaultProps: {
-        elevation: 0
-      }
+        elevation: 0,
+      },
     },
     MuiButton: {
       defaultProps: {
-        variant: "contained"
-      }
+        variant: "contained",
+      },
     },
     MuiButtonGroup: {
       defaultProps: {
-        variant: "contained"
-      }
+        variant: "contained",
+      },
     },
     MuiList: {
       styleOverrides: {
@@ -424,35 +423,35 @@ export const theme = createTheme({
           padding: 0,
           marginTop: defaultTheme.spacing(1),
           marginBottom: defaultTheme.spacing(1),
-        }
-      }
+        },
+      },
     },
     MuiTypography: {
       styleOverrides: {
         root: {
           "& ul": {
             margin: 0,
-            paddingLeft: defaultTheme.spacing(3)
-          }
-        }
-      }
+            paddingLeft: defaultTheme.spacing(3),
+          },
+        },
+      },
     },
     MuiCardContent: {
       styleOverrides: {
         root: {
-          [defaultTheme.breakpoints.down('sm')]: {
+          [defaultTheme.breakpoints.down("sm")]: {
             padding: defaultTheme.spacing(1),
             "&:last-child": {
               paddingBottom: defaultTheme.spacing(1),
-            }
+            },
           },
-          [defaultTheme.breakpoints.up('sm')]: {
+          [defaultTheme.breakpoints.up("sm")]: {
             "&:last-child": {
               paddingBottom: defaultTheme.spacing(2),
-            }
-          }
-        }
-      }
-    }
+            },
+          },
+        },
+      },
+    },
   },
 });

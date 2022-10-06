@@ -298,7 +298,7 @@ export default function TabBuild() {
   }, [data, teamData])
 
   return <Box display="flex" flexDirection="column" gap={1}>
-    {noArtifact && <Alert severity="warning" variant="filled"> Opps! It looks like you haven't added any artifacts to GO yet! You should go to the <Link component={RouterLink} to="/artifact">Artifacts</Link> page and add some!</Alert>}
+    {noArtifact && <Alert severity="warning" variant="filled"> Opps! It looks like you haven't added any artifacts to SQ yet! You should go to the <Link component={RouterLink} to="/artifact">Artifacts</Link> page and add some!</Alert>}
     {/* Build Generator Editor */}
     {dataContext && <DataContext.Provider value={dataContext}>
 

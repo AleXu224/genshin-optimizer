@@ -128,7 +128,7 @@ export function EnemyEditor({ bsProps = { xs: 12, md: 6 } }: { bsProps?: object 
       />
     </Grid>
     <Grid item xs={12}>
-      <small>Note: Genshin Impact halves resistance shred values below 0%. For the sake of calculations enter the RAW value and GO will do the rest. (e.g. 10% - 20% = -10%)</small>
+      <small>Note: Genshin Impact halves resistance shred values below 0%. For the sake of calculations enter the RAW value and SQ will do the rest. (e.g. 10% - 20% = -10%)</small>
     </Grid>
   </Grid>
 }

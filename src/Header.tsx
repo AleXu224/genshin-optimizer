@@ -1,5 +1,5 @@
 import { faDiscord, faPatreon, faPaypal } from "@fortawesome/free-brands-svg-icons";
-import { Article, Construction, Menu as MenuIcon, People, Scanner, Settings } from "@mui/icons-material";
+import { Article, Construction, Menu as MenuIcon, People, Settings } from "@mui/icons-material";
 import { AppBar, Box, Button, Chip, Divider, Drawer, IconButton, List, ListItemButton, ListItemIcon, ListItemText, Skeleton, Tab, Tabs, Toolbar, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { Suspense, useState } from "react";
 import ReactGA from 'react-ga4';
@@ -33,12 +33,6 @@ const content = [{
   icon: <Construction />,
   to: "/tools",
   value: "tools",
-  resize: true,
-}, {
-  i18Key: "tabs.scanner",
-  icon: <Scanner />,
-  to: "/scanner",
-  value: "scanner",
   resize: true,
 }, {
   i18Key: "tabs.doc",
@@ -86,7 +80,7 @@ function HeaderContent({ anchor }) {
 
   const { params: { currentTab } } = useMatch({ path: "/:currentTab", end: false }) ?? { params: { currentTab: "" } };
   if (isMobile) return <MobileHeader anchor={anchor} currentTab={currentTab} />
-  return <AppBar position="static" sx={{ bgcolor: "#343a40", display: "flex", flexWrap: "nowrap" }} elevation={0} id={anchor} >
+  return <AppBar position="static" sx={{ bgcolor: "#152429", display: "flex", flexWrap: "nowrap" }} elevation={0} id={anchor} >
     <Tabs
       value={currentTab}
       variant="scrollable"
@@ -110,15 +104,12 @@ function HeaderContent({ anchor }) {
       }}
     >
       <Tab value="" component={RouterLink} to="/" label={<Typography variant="h6" sx={{ px: 1 }}>
-        <Trans t={t} i18nKey="pageTitle">Genshin Optimizer</Trans>
+        <Trans t={t} i18nKey="pageTitle">Squishy</Trans>
       </Typography>} />
       {content.map(({ i18Key, value, to, icon, resize }) => <Tab key={value} value={value} component={RouterLink} to={to} icon={icon} iconPosition="start" label={(isLarge || !resize) && t(i18Key)} />)}
       <Box display="flex" alignItems="center">
         <Chip color="success" label={name} />
       </Box>
-
-      <Box flexGrow={1} />
-      {links.map(({ i18Key, href, label, icon }) => <Tab key={label} component="a" href={href} target="_blank" icon={icon} iconPosition="start" onClick={e => ReactGA.outboundLink({ label }, () => { })} label={isLarge && t(i18Key)} />)}
     </Tabs>
   </AppBar>
 }
@@ -133,7 +124,7 @@ function MobileHeader({ anchor, currentTab }) {
 
   const { t } = useTranslation("ui")
   return <>
-    <AppBar position="fixed" sx={{ bgcolor: "#343a40" }} elevation={0}  >
+    <AppBar position="fixed" sx={{ bgcolor: "#152429" }} elevation={0}  >
       <Drawer
         anchor="right"
         variant="temporary"
@@ -168,7 +159,7 @@ function MobileHeader({ anchor, currentTab }) {
       <Toolbar>
         <Button variant="text" sx={{ color: "white" }} component={RouterLink} to="/">
           <Typography variant="h6" noWrap component="div">
-            <Trans t={t} i18nKey="pageTitle">Genshin Optimizer</Trans>
+            <Trans t={t} i18nKey="pageTitle">Squishy</Trans>
           </Typography>
         </Button>
         <Box flexGrow={1} />

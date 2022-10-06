@@ -131,7 +131,7 @@ function Overview() {
   return <>
     <Typography gutterBottom variant="h4">Genshin Open Object Description (GOOD)</Typography>
     <Typography gutterBottom><strong>GOOD</strong> is a data format description to map Genshin Data into a parsable JSON. This is intended to be a standardized format to allow Genshin developers/programmers to transfer data without needing manual conversion.</Typography>
-    <Typography gutterBottom>As of version 6.0.0, Genshin Optimizer's database export conforms to this format.</Typography>
+    <Typography gutterBottom>As of version 6.0.0, Squishy's database export conforms to this format.</Typography>
     <CardDark>
       <CardContent>
         <CodeBlock text={goodCode} />
