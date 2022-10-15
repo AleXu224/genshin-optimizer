@@ -6,7 +6,6 @@ import BlackcliffLongsword from "./BlackcliffLongsword"
 import CinnabarSpindle from "./CinnabarSpindle"
 import CoolSteel from "./CoolSteel"
 import KagotsurubeIsshin from "./KagotsurubeIsshin"
-import KeyOfKhajNisut from "./KeyOfKhajNisut"
 import DarkIronSword from "./DarkIronSword"
 import DullBlade from "./DullBlade"
 import FavoniusSword from "./FavoniusSword"
@@ -41,7 +40,6 @@ const sword: Record<WeaponSwordKey, WeaponSheet> = {
   CinnabarSpindle,
   CoolSteel,
   KagotsurubeIsshin,
-  KeyOfKhajNisut,
   DarkIronSword,
   DullBlade,
   FavoniusSword,

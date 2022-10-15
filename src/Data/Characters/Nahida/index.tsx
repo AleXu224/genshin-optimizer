@@ -8,7 +8,6 @@ import {
   infoMut,
   lookup,
   min,
-  naught,
   percent,
   prod,
   subscript,
@@ -16,7 +15,7 @@ import {
 } from "../../../Formula/utils";
 import { CharacterKey, ElementKey, Region } from "../../../Types/consts";
 import { objectKeyMap, range } from "../../../Util/Util";
-import { cond, sgt, st, trans } from "../../SheetUtil";
+import { cond, stg, st } from "../../SheetUtil";
 import CharacterSheet, {
   charTemplates,
   ICharacterSheet,
@@ -30,7 +29,6 @@ const data_gen = data_gen_src as CharacterData;
 const key: CharacterKey = "Nahida";
 const elementKey: ElementKey = "dendro";
 const regionKey: Region = "sumeru";
-const [tr, trm] = trans("char", key);
 const ct = charTemplates(key, data_gen.weaponTypeKey, assets);
 
 let a = 0,
@@ -173,7 +171,7 @@ const c6Atk = greaterEq(
       "skill"
     )
   ),
-  { key: `char_${key}:c6Atk` }
+  { name: ct.ch(`c6Atk`) }
 );
 
 const [burstActivePath, burstActive] = cond(key, "burstActive");
@@ -191,7 +189,7 @@ const pyroDmgBonus = equal(
       subscript(input.total.burstIndex, datamine.burst.pyro2)
     )
   ),
-  { key: `char_${key}:burstPyro_` }
+  { name: ct.ch(`burstPyro_`), unit: "%" }
 );
 
 const electroCdDecrease = equal(
@@ -207,7 +205,7 @@ const electroCdDecrease = equal(
       subscript(input.total.burstIndex, datamine.burst.electro2)
     )
   ),
-  { key: `char_${key}:burstElectro` }
+  { name: ct.ch(`burstElectro`), unit: "s" }
 );
 
 const hydroDuration = equal(
@@ -223,7 +221,7 @@ const hydroDuration = equal(
       subscript(input.total.burstIndex, datamine.burst.hydro2)
     )
   ),
-  { key: `char_${key}:burstHydro` }
+  { name: ct.ch(`burstHydro`), unit: "s" }
 );
 
 const a4Stacks = greaterEq(
@@ -338,108 +336,108 @@ export const data = dataObjForCharacterSheet(
 
 const sheet: ICharacterSheet = {
   key,
-  name: tr("name"),
+  name: ct.chg("name"),
   rarity: data_gen.star,
   elementKey,
   weaponTypeKey: data_gen.weaponTypeKey,
   gender: "F",
-  constellationName: tr("constellationName"),
-  title: tr("title"),
+  constellationName: ct.chg("constellationName"),
+  title: ct.chg("title"),
   talent: {
-    auto: ct.talentTemplate("auto", [
+    auto: ct.talentTem("auto", [
       {
-        text: tr("auto.fields.normal"),
+        text: ct.chg("auto.fields.normal"),
       },
       {
         fields: datamine.normal.hitArr.map((_, i) => ({
           node: infoMut(dmgFormulas.normal[i], {
-            key: `char_${key}_gen:auto.skillParams.${i}`,
+            name: ct.chg(`auto.skillParams.${i}`),
           }),
         })),
       },
       {
-        text: tr("auto.fields.charged"),
+        text: ct.chg("auto.fields.charged"),
       },
       {
         fields: [
           {
             node: infoMut(dmgFormulas.charged.dmg, {
-              key: `char_${key}_gen:auto.skillParams.4`,
+              name: ct.chg(`auto.skillParams.4`),
             }),
           },
           {
-            text: tr("auto.skillParams.5"),
+            text: ct.chg("auto.skillParams.5"),
             value: datamine.charged.stamina,
           },
         ],
       },
       {
-        text: tr("auto.fields.plunging"),
+        text: ct.chg("auto.fields.plunging"),
       },
       {
         fields: [
           {
             node: infoMut(dmgFormulas.plunging.dmg, {
-              key: "sheet_gen:plunging.dmg",
+              name: stg("plunging.dmg"),
             }),
           },
           {
             node: infoMut(dmgFormulas.plunging.low, {
-              key: "sheet_gen:plunging.low",
+              name: stg("plunging.low"),
             }),
           },
           {
             node: infoMut(dmgFormulas.plunging.high, {
-              key: "sheet_gen:plunging.high",
+              name: stg("plunging.high"),
             }),
           },
         ],
       },
     ]),
 
-    skill: ct.talentTemplate("skill", [
+    skill: ct.talentTem("skill", [
       {
         fields: [
           {
             node: infoMut(dmgFormulas.skill.pressDmg, {
-              key: `char_${key}_gen:skill.skillParams.0`,
+              name: ct.chg(`skill.skillParams.0`),
             }),
           },
           {
             node: infoMut(dmgFormulas.skill.holdDmg, {
-              key: `char_${key}_gen:skill.skillParams.1`,
+              name: ct.chg(`skill.skillParams.1`),
             }),
           },
           {
             node: infoMut(dmgFormulas.skill.triKarmaDmg, {
-              key: `char_${key}_gen:skill.skillParams.2`,
+              name: ct.chg(`skill.skillParams.2`),
             }),
           },
           {
-            text: tr("skill.skillParams.3"),
+            text: ct.chg("skill.skillParams.3"),
             value: `${datamine.skill.triKarmaInterval}s`,
           },
           {
-            text: sgt("duration"),
+            text: stg("duration"),
             value: `${datamine.skill.duration}s`,
           },
           {
-            text: sgt("press.cd"),
+            text: stg("press.cd"),
             value: `${datamine.skill.cd}s`,
           },
           {
-            text: sgt("hold.cd"),
+            text: stg("hold.cd"),
             value: `${datamine.skill.cdHold}s`,
           },
         ],
       },
     ]),
 
-    burst: ct.talentTemplate("burst", [
+    burst: ct.talentTem("burst", [
       {
         fields: [],
       },
-      ct.conditionalTemplate("burst", {
+      ct.condTem("burst", {
         path: burstActivePath,
         value: burstActive,
         name: st("afterUse.burst"),
@@ -460,8 +458,8 @@ const sheet: ICharacterSheet = {
         },
       }),
     ]),
-    passive1: ct.talentTemplate("passive1", [
-      ct.conditionalTemplate("passive1", {
+    passive1: ct.talentTem("passive1", [
+      ct.condTem("passive1", {
         path: a1EmPath,
         value: a1Em,
         name: st("stacks"),
@@ -481,25 +479,25 @@ const sheet: ICharacterSheet = {
         ),
       }),
     ]),
-    passive2: ct.talentTemplate("passive2", [
+    passive2: ct.talentTem("passive2", [
       {
         fields: [
           {
-            node: infoMut(a4BonusDmg, { key: `char_${key}:a4Dmg_` }),
+            node: infoMut(a4BonusDmg, { name: ct.ch(`a4Dmg_`), unit: "%" }),
           },
           {
-            node: infoMut(a4BonusCR, { key: `char_${key}:a4CritRate_` }),
+            node: infoMut(a4BonusCR, { name: ct.ch(`a4CritRate_`), unit: "%" }),
           },
         ],
       },
     ]),
-    passive3: ct.talentTemplate("passive3"),
-    constellation1: ct.talentTemplate("constellation1"),
-    constellation2: ct.talentTemplate("constellation2", [
-      ct.conditionalTemplate("constellation2", {
+    passive3: ct.talentTem("passive3"),
+    constellation1: ct.talentTem("constellation1"),
+    constellation2: ct.talentTem("constellation2", [
+      ct.condTem("constellation2", {
         path: c2CondPath,
         value: c2Cond,
-        name: trm("c2CondSeed"),
+        name: ct.ch("c2CondSeed"),
         teamBuff: true,
         states: {
           on: {
@@ -507,12 +505,12 @@ const sheet: ICharacterSheet = {
           },
         },
       }),
-      ct.conditionalTemplate("constellation2", {
+      ct.condTem("constellation2", {
         path: c2DefPath,
         value: c2Def,
         canShow: equal(c2Cond, "on", 1),
         teamBuff: true,
-        name: trm("c2Def"),
+        name: ct.ch("c2Def"),
         states: {
           on: {
             fields: [
@@ -524,14 +522,14 @@ const sheet: ICharacterSheet = {
         },
       }),
     ]),
-    constellation3: ct.talentTemplate("constellation3", [
+    constellation3: ct.talentTem("constellation3", [
       { fields: [{ node: nodeC3 }] },
     ]),
-    constellation4: ct.talentTemplate("constellation4", [
-      ct.conditionalTemplate("constellation4", {
+    constellation4: ct.talentTem("constellation4", [
+      ct.condTem("constellation4", {
         path: c4CondPath,
         value: c4Cond,
-        name: trm("c4Cond"),
+        name: ct.ch("c4Cond"),
         states: Object.fromEntries(
           c4BuffRange.map((buff) => [
             buff,
@@ -547,11 +545,11 @@ const sheet: ICharacterSheet = {
         ),
       }),
     ]),
-    constellation5: ct.talentTemplate("constellation5", [
+    constellation5: ct.talentTem("constellation5", [
       { fields: [{ node: nodeC5 }] },
     ]),
-    constellation6: ct.talentTemplate("constellation6", [
-      ct.conditionalTemplate("constellation6", {
+    constellation6: ct.talentTem("constellation6", [
+      ct.condTem("constellation6", {
         path: c6CondPath,
         value: c6Cond,
         name: st("hitOp.none"),
