@@ -307,7 +307,7 @@ export function constantFold(formulas: NumNode[], topLevelData: Data, shouldFold
         break
       }
       case "threshold": {
-        const [value, threshold, pass, fail] = formula.operands.map(x => fold(x, context))
+        const [value, threshold, pass, fail] = formula.operands.map(x => fold(x, context) as NumNode)
         if (pass.operation === "const" && fail.operation === "const" && pass.value === fail.value)
           result = pass
         else if (value.operation === "const" && threshold.operation === "const")
@@ -355,6 +355,10 @@ export function constantFold(formulas: NumNode[], topLevelData: Data, shouldFold
       default: assertUnreachable(operation)
     }
 
+    if (result.info) {
+      result = { ...result }
+      delete result.info
+    }
     context.processed.set(formula, result)
     return result
   }

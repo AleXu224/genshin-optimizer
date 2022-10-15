@@ -76,6 +76,7 @@ export const characterIdMap = {
   10000067: "Collei",
   10000068: "Dori",
   10000069: "Tighnari",
+  10000070: "Nilou",
   10000071: "Cyno",
   10000072: "Candace",
   10000073: "Nahida",
@@ -121,6 +122,7 @@ export const weaponIdMap = {
   11415: "CinnabarSpindle",
   11416: "KagotsurubeIsshin",
   11417: "SapwoodBlade",
+  11418: "XiphosMoonlight",
   11501: "AquilaFavonia",
   11502: "SkywardBlade",
   11503: "FreedomSworn",
@@ -131,6 +133,7 @@ export const weaponIdMap = {
   // 11508: "",
   11509: "MistsplitterReforged",
   11510: "HaranGeppakuFutsu",
+  11511: "KeyOfKhajNisut",
 
   //claymore
   12101: "WasterGreatsword",
@@ -221,6 +224,7 @@ export const weaponIdMap = {
   14413: "DodocoTales",
   14414: "HakushinRing",
   14415: "OathswornEye",
+  14416: "WanderingEvenstar",
   14417: "FruitOfFulfillment",
   14501: "SkywardAtlas",
   14502: "LostPrayerToTheSacredWinds",

@@ -8,19 +8,16 @@ export type NumNode = ComputeNode | ThresholdNode<NumNode> |
   LookupNode<NumNode> | MatchNode<StrNode, NumNode> | MatchNode<NumNode, NumNode> |
   SubscriptNode<number> |
   ReadNode<number> | ConstantNode<number>
-export type StrNode = StrPrioNode | SmallestNode |
+export type StrNode = StrPrioNode | SmallestNode | ThresholdNode<StrNode> |
   DataNode<StrNode> |
   LookupNode<StrNode> |
   MatchNode<StrNode, StrNode> | MatchNode<NumNode, StrNode> |
   ReadNode<string | undefined> | ConstantNode<string | undefined>
-export type AnyNode = NumNode | StrNode | {
-  operation: string
-  operands: readonly AnyNode[]
-  info?: Info
-}
 
 interface Info {
-  key?: string
+  name?: Displayable
+  unit?: Unit
+  icon?: Displayable
   prefix?: KeyMapPrefix
   source?: CharacterKey | WeaponKey | ArtifactSetKey
   variant?: Variant
@@ -29,11 +26,12 @@ interface Info {
   pivot?: true
   fixed?: number
   isTeamBuff?: boolean
+  multi?: number
+  textSuffix?: Displayable
 }
 export type Variant = ElementKeyWithPhy | TransformativeReactionsKey | AmplifyingReactionsKey | AdditiveReactionsKey | "heal" | "invalid"
 
 interface Base {
-  operands: readonly AnyNode[]
   info?: Info
 }
 export interface StrPrioNode extends Base {

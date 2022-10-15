@@ -16,6 +16,7 @@ import FreedomSworn from "./FreedomSworn"
 import HaranGeppakuFutsu from "./HaranGeppakuFutsu"
 import HarbingerOfDawn from "./HarbingerOfDawn"
 import IronSting from "./IronSting"
+import KeyOfKhajNisut from "./KeyOfKhajNisut"
 import LionsRoar from "./LionsRoar"
 import MistsplitterReforged from "./MistsplitterReforged"
 import PrimordialJadeCutter from "./PrimordialJadeCutter"
@@ -32,6 +33,7 @@ import TheAlleyFlash from "./TheAlleyFlash"
 import TheBlackSword from "./TheBlackSword"
 import TheFlute from "./TheFlute"
 import TravelersHandySword from "./TravelersHandySword"
+import XiphosMoonlight from "./XiphosMoonlight"
 const sword: Record<WeaponSwordKey, WeaponSheet> = {
   AmenomaKageuchi,
   AquilaFavonia,
@@ -49,6 +51,7 @@ const sword: Record<WeaponSwordKey, WeaponSheet> = {
   HaranGeppakuFutsu,
   HarbingerOfDawn,
   IronSting,
+  KeyOfKhajNisut,
   LionsRoar,
   MistsplitterReforged,
   PrimordialJadeCutter,
@@ -65,5 +68,6 @@ const sword: Record<WeaponSwordKey, WeaponSheet> = {
   TheBlackSword,
   TheFlute,
   TravelersHandySword,
+  XiphosMoonlight,
 } as const
 export default sword
