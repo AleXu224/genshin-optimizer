@@ -109,8 +109,8 @@
     "name": "Compassion Illuminated",
     "description": {
       "0": "When unleashing <strong>Illusory Heart</strong>, the Shrine of Maya will gain the following effects:",
-      "1": "The Elemental Mastery of the active character within the field will be increased by 20% of the Elemental Mastery of the party member with the highest Elemental Mastery.",
-      "2": "You can gain a maximum of 200 Elemental Mastery in this manner."
+      "1": "The Elemental Mastery of the active character within the field will be increased by 25% of the Elemental Mastery of the party member with the highest Elemental Mastery.",
+      "2": "You can gain a maximum of 250 Elemental Mastery in this manner."
     }
   },
   "passive2": {
