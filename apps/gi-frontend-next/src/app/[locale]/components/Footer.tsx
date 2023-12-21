@@ -7,7 +7,7 @@ import packageInfo from '../../../../../../package.json'
 export default function Footer() {
   const { t } = useTranslation('ui')
   return (
-    <AppBar position="static" sx={{ bgcolor: '#343a40' }}>
+    <AppBar position="static" sx={{ bgcolor: '#152429' }}>
       <Box
         display="flex"
         justifyContent="space-between"

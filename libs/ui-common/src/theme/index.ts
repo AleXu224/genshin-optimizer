@@ -69,11 +69,11 @@ export const theme = createTheme({
   palette: {
     mode: 'dark',
     primary: defaultTheme.palette.augmentColor({
-      color: { main: '#1e78c8' },
+      color: { main: '#3B6472' },
       name: 'primary',
     }),
     secondary: defaultTheme.palette.augmentColor({
-      color: { main: '#6c757d' },
+      color: { main: '#2B4852' },
       name: 'secondary',
     }),
     success: defaultTheme.palette.augmentColor({
@@ -89,26 +89,26 @@ export const theme = createTheme({
       name: 'error',
     }),
     background: {
-      default: '#0C1020',
-      paper: '#0C1020',
+      default: '#0A1215',
+      paper: '#0A1215',
     },
     info: defaultTheme.palette.augmentColor({
-      color: { main: '#17a2b8' },
+      color: { main: '#2B4852' },
       name: 'info',
     }),
     text: {
       primary: 'rgba(255,255,255,0.9)',
     },
     contentNormal: defaultTheme.palette.augmentColor({
-      color: { main: '#1b263b' },
+      color: { main: '#152429' },
       name: 'contentNormal',
     }),
     contentDark: defaultTheme.palette.augmentColor({
-      color: { main: '#172032' },
+      color: { main: '#101C20' },
       name: 'contentDark',
     }),
     contentLight: defaultTheme.palette.augmentColor({
-      color: { main: '#2a364d' },
+      color: { main: '#1A2D33' },
       name: 'contentLight',
     }),
 

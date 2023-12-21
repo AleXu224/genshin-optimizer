@@ -72,12 +72,6 @@ const tools: ITab = {
   to: '/tools',
   value: 'tools',
 }
-const scanner: ITab = {
-  i18Key: 'tabs.scanner',
-  icon: <Scanner />,
-  to: '/scanner',
-  value: 'scanner',
-}
 const doc: ITab = {
   i18Key: 'tabs.doc',
   icon: <Article />,
@@ -150,7 +144,6 @@ const maincontent = [
   weapons,
   characters,
   tools,
-  scanner,
   doc,
   setting,
 ] as const
@@ -172,7 +165,7 @@ function HeaderContent({ anchor }: { anchor: string }) {
     <Box>
       <AppBar
         position="static"
-        sx={{ bgcolor: '#343a40' }}
+        sx={{ bgcolor: '#152429' }}
         elevation={0}
         id={anchor}
       >
@@ -260,7 +253,6 @@ const mobileContent = [
   weapons,
   characters,
   tools,
-  scanner,
   doc,
   setting,
 ] as const
@@ -281,7 +273,7 @@ function MobileHeader({
   const { silly } = useContext(SillyContext)
   return (
     <>
-      <AppBar position="fixed" sx={{ bgcolor: '#343a40' }} elevation={0}>
+      <AppBar position="fixed" sx={{ bgcolor: '#152429' }} elevation={0}>
         <Drawer
           anchor="right"
           variant="temporary"

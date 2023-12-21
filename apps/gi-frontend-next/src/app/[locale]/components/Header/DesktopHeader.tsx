@@ -32,7 +32,7 @@ export default function DesktopHeader({
   const isXL = useMediaQuery(theme.breakpoints.up('xl'))
 
   return (
-    <AppBar position="static" id={anchor} sx={{ bgcolor: '#343a40' }}>
+    <AppBar position="static" id={anchor} sx={{ bgcolor: '#152429' }}>
       <Tabs
         value={currentTab}
         sx={{
